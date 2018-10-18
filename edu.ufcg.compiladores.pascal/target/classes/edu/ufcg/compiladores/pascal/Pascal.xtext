@@ -1,0 +1,9 @@
+grammar edu.ufcg.compiladores.pascal.Pascal with org.eclipse.xtext.common.Terminals
+
+generate pascal "http://www.ufcg.edu/compiladores/pascal/Pascal"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';

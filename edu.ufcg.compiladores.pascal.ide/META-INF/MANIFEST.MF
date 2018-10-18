@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.ufcg.compiladores.pascal.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.ufcg.compiladores.pascal.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: edu.ufcg.compiladores.pascal,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: edu.ufcg.compiladores.pascal.ide.contentassist.antlr,
+ edu.ufcg.compiladores.pascal.ide.contentassist.antlr.internal
+

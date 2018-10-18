@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: edu.ufcg.compiladores.pascal
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: edu.ufcg.compiladores.pascal; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib,
+ org.antlr.runtime,
+ org.eclipse.xtext.util,
+ org.eclipse.xtend.lib,
+ org.eclipse.emf.common
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: edu.ufcg.compiladores.pascal.pascal,
+ edu.ufcg.compiladores.pascal,
+ edu.ufcg.compiladores.pascal.pascal.util,
+ edu.ufcg.compiladores.pascal.scoping,
+ edu.ufcg.compiladores.pascal.validation,
+ edu.ufcg.compiladores.pascal.generator,
+ edu.ufcg.compiladores.pascal.parser.antlr.internal,
+ edu.ufcg.compiladores.pascal.services,
+ edu.ufcg.compiladores.pascal.pascal.impl,
+ edu.ufcg.compiladores.pascal.serializer,
+ edu.ufcg.compiladores.pascal.parser.antlr
+Import-Package: org.apache.log4j

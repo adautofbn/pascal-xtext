@@ -1,0 +1,5 @@
+include 'edu.ufcg.compiladores.pascal'
+include 'edu.ufcg.compiladores.pascal.ide'
+include 'edu.ufcg.compiladores.pascal.idea'
+include 'edu.ufcg.compiladores.pascal.web'
+include 'edu.ufcg.compiladores.pascal.tests'

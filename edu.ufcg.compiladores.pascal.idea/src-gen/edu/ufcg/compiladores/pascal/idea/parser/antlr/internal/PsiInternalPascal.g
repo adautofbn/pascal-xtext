@@ -43,60 +43,92 @@ import com.intellij.lang.PsiBuilder;
 
 	@Override
 	protected String getFirstRuleName() {
-		return "Model";
+		return "Pascal";
 	}
 
 }
 
-//Entry rule entryRuleModel
-entryRuleModel returns [Boolean current=false]:
-	{ markComposite(elementTypeProvider.getModelElementType()); }
-	iv_ruleModel=ruleModel
-	{ $current=$iv_ruleModel.current; }
+//Entry rule entryRulePascal
+entryRulePascal returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getPascalElementType()); }
+	iv_rulePascal=rulePascal
+	{ $current=$iv_rulePascal.current; }
 	EOF;
 
-// Rule Model
-ruleModel returns [Boolean current=false]
+// Rule Pascal
+rulePascal returns [Boolean current=false]
 :
 	(
 		(
-			{
-				markComposite(elementTypeProvider.getModel_GreetingsGreetingParserRuleCall_0ElementType());
-			}
-			lv_greetings_0_0=ruleGreeting
-			{
-				doneComposite();
-				if(!$current) {
-					associateWithSemanticElement();
-					$current = true;
+			(
+				{
+					markComposite(elementTypeProvider.getPascal_ElementProgramParserRuleCall_0_0ElementType());
 				}
-			}
+				lv_element_0_0=ruleprogram
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
 		)
-	)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getPascal_ElementVar_declParserRuleCall_1_0ElementType());
+				}
+				lv_element_1_0=rulevar_decl
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getPascal_ElementAtribParserRuleCall_2_0ElementType());
+				}
+				lv_element_2_0=ruleatrib
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)*
+	)
 ;
 
-//Entry rule entryRuleGreeting
-entryRuleGreeting returns [Boolean current=false]:
-	{ markComposite(elementTypeProvider.getGreetingElementType()); }
-	iv_ruleGreeting=ruleGreeting
-	{ $current=$iv_ruleGreeting.current; }
+//Entry rule entryRuleprogram
+entryRuleprogram returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getProgramElementType()); }
+	iv_ruleprogram=ruleprogram
+	{ $current=$iv_ruleprogram.current; }
 	EOF;
 
-// Rule Greeting
-ruleGreeting returns [Boolean current=false]
+// Rule program
+ruleprogram returns [Boolean current=false]
 :
 	(
 		{
-			markLeaf(elementTypeProvider.getGreeting_HelloKeyword_0ElementType());
+			markLeaf(elementTypeProvider.getProgram_ProgramKeyword_0ElementType());
 		}
-		otherlv_0='Hello'
+		otherlv_0='program'
 		{
 			doneLeaf(otherlv_0);
 		}
 		(
 			(
 				{
-					markLeaf(elementTypeProvider.getGreeting_NameIDTerminalRuleCall_1_0ElementType());
+					markLeaf(elementTypeProvider.getProgram_NameIDTerminalRuleCall_1_0ElementType());
 				}
 				lv_name_1_0=RULE_ID
 				{
@@ -111,12 +143,275 @@ ruleGreeting returns [Boolean current=false]
 			)
 		)
 		{
-			markLeaf(elementTypeProvider.getGreeting_ExclamationMarkKeyword_2ElementType());
+			markLeaf(elementTypeProvider.getProgram_SemicolonKeyword_2ElementType());
 		}
-		otherlv_2='!'
+		otherlv_2=';'
 		{
 			doneLeaf(otherlv_2);
 		}
+	)
+;
+
+//Entry rule entryRulevar_decl
+entryRulevar_decl returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getVar_declElementType()); }
+	iv_rulevar_decl=rulevar_decl
+	{ $current=$iv_rulevar_decl.current; }
+	EOF;
+
+// Rule var_decl
+rulevar_decl returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getVar_decl_VarKeyword_0ElementType());
+		}
+		otherlv_0='var'
+		{
+			doneLeaf(otherlv_0);
+		}
+		(
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getVar_decl_Var_listVar_listParserRuleCall_1_0_0ElementType());
+					}
+					lv_var_list_1_0=rulevar_list
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+			{
+				markLeaf(elementTypeProvider.getVar_decl_ColonKeyword_1_1ElementType());
+			}
+			otherlv_2=':'
+			{
+				doneLeaf(otherlv_2);
+			}
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getVar_decl_TypeTypeEnumRuleCall_1_2_0ElementType());
+					}
+					lv_type_3_0=ruleType
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)
+			{
+				markLeaf(elementTypeProvider.getVar_decl_SemicolonKeyword_1_3ElementType());
+			}
+			otherlv_4=';'
+			{
+				doneLeaf(otherlv_4);
+			}
+		)+
+	)
+;
+
+//Entry rule entryRulevar_list
+entryRulevar_list returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getVar_listElementType()); }
+	iv_rulevar_list=rulevar_list
+	{ $current=$iv_rulevar_list.current; }
+	EOF;
+
+// Rule var_list
+rulevar_list returns [Boolean current=false]
+:
+	(
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getVar_list_IdentifierIDTerminalRuleCall_0_0ElementType());
+				}
+				lv_identifier_0_0=RULE_ID
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_identifier_0_0);
+				}
+			)
+		)
+		(
+			{
+				markLeaf(elementTypeProvider.getVar_list_CommaKeyword_1_0ElementType());
+			}
+			otherlv_1=','
+			{
+				doneLeaf(otherlv_1);
+			}
+			(
+				(
+					{
+						markComposite(elementTypeProvider.getVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType());
+					}
+					lv_var_list_2_0=rulevar_list
+					{
+						doneComposite();
+						if(!$current) {
+							associateWithSemanticElement();
+							$current = true;
+						}
+					}
+				)
+			)+
+		)*
+	)
+;
+
+//Entry rule entryRuleatrib
+entryRuleatrib returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getAtribElementType()); }
+	iv_ruleatrib=ruleatrib
+	{ $current=$iv_ruleatrib.current; }
+	EOF;
+
+// Rule atrib
+ruleatrib returns [Boolean current=false]
+:
+	(
+		(
+			(
+				{
+					markLeaf(elementTypeProvider.getAtrib_IdentifierIDTerminalRuleCall_0_0ElementType());
+				}
+				lv_identifier_0_0=RULE_ID
+				{
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+				{
+					doneLeaf(lv_identifier_0_0);
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getAtrib_ColonEqualsSignKeyword_1ElementType());
+		}
+		otherlv_1=':='
+		{
+			doneLeaf(otherlv_1);
+		}
+		(
+			(
+				{
+					markComposite(elementTypeProvider.getAtrib_ValueSomeValueParserRuleCall_2_0ElementType());
+				}
+				lv_value_2_0=ruleSomeValue
+				{
+					doneComposite();
+					if(!$current) {
+						associateWithSemanticElement();
+						$current = true;
+					}
+				}
+			)
+		)
+		{
+			markLeaf(elementTypeProvider.getAtrib_SemicolonKeyword_3ElementType());
+		}
+		otherlv_3=';'
+		{
+			doneLeaf(otherlv_3);
+		}
+	)
+;
+
+//Entry rule entryRuleSomeValue
+entryRuleSomeValue returns [Boolean current=false]:
+	{ markComposite(elementTypeProvider.getSomeValueElementType()); }
+	iv_ruleSomeValue=ruleSomeValue
+	{ $current=$iv_ruleSomeValue.current; }
+	EOF;
+
+// Rule SomeValue
+ruleSomeValue returns [Boolean current=false]
+:
+	(
+		{
+			markLeaf(elementTypeProvider.getSomeValue_IDTerminalRuleCall_0ElementType());
+		}
+		this_ID_0=RULE_ID
+		{
+			doneLeaf(this_ID_0);
+		}
+		    |
+		{
+			markLeaf(elementTypeProvider.getSomeValue_INTTerminalRuleCall_1ElementType());
+		}
+		this_INT_1=RULE_INT
+		{
+			doneLeaf(this_INT_1);
+		}
+		    |
+		{
+			markLeaf(elementTypeProvider.getSomeValue_STRINGTerminalRuleCall_2ElementType());
+		}
+		this_STRING_2=RULE_STRING
+		{
+			doneLeaf(this_STRING_2);
+		}
+		    |
+		{
+			markLeaf(elementTypeProvider.getSomeValue_ANY_OTHERTerminalRuleCall_3ElementType());
+		}
+		this_ANY_OTHER_3=RULE_ANY_OTHER
+		{
+			doneLeaf(this_ANY_OTHER_3);
+		}
+	)
+;
+
+// Rule Type
+ruleType returns [Boolean current=false]
+:
+	(
+		(
+			{
+				markLeaf(elementTypeProvider.getType_BOOLEANEnumLiteralDeclaration_0ElementType());
+			}
+			enumLiteral_0='Boolean'
+			{
+				doneLeaf(enumLiteral_0);
+			}
+		)
+		    |
+		(
+			{
+				markLeaf(elementTypeProvider.getType_INTEGEREnumLiteralDeclaration_1ElementType());
+			}
+			enumLiteral_1='Integer'
+			{
+				doneLeaf(enumLiteral_1);
+			}
+		)
+		    |
+		(
+			{
+				markLeaf(elementTypeProvider.getType_STRINGEnumLiteralDeclaration_2ElementType());
+			}
+			enumLiteral_2='String'
+			{
+				doneLeaf(enumLiteral_2);
+			}
+		)
 	)
 ;
 

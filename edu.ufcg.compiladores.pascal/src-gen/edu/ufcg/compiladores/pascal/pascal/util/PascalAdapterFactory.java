@@ -76,14 +76,29 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
     new PascalSwitch<Adapter>()
     {
       @Override
-      public Adapter caseModel(Model object)
+      public Adapter casePascal(Pascal object)
       {
-        return createModelAdapter();
+        return createPascalAdapter();
       }
       @Override
-      public Adapter caseGreeting(Greeting object)
+      public Adapter caseprogram(program object)
       {
-        return createGreetingAdapter();
+        return createprogramAdapter();
+      }
+      @Override
+      public Adapter casevar_decl(var_decl object)
+      {
+        return createvar_declAdapter();
+      }
+      @Override
+      public Adapter casevar_list(var_list object)
+      {
+        return createvar_listAdapter();
+      }
+      @Override
+      public Adapter caseatrib(atrib object)
+      {
+        return createatribAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -108,31 +123,76 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.Model <em>Model</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.Pascal <em>Pascal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.ufcg.compiladores.pascal.pascal.Model
+   * @see edu.ufcg.compiladores.pascal.pascal.Pascal
    * @generated
    */
-  public Adapter createModelAdapter()
+  public Adapter createPascalAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.Greeting <em>Greeting</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.program <em>program</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.ufcg.compiladores.pascal.pascal.Greeting
+   * @see edu.ufcg.compiladores.pascal.pascal.program
    * @generated
    */
-  public Adapter createGreetingAdapter()
+  public Adapter createprogramAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.var_decl <em>var decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.var_decl
+   * @generated
+   */
+  public Adapter createvar_declAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.var_list <em>var list</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.var_list
+   * @generated
+   */
+  public Adapter createvar_listAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.atrib <em>atrib</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.atrib
+   * @generated
+   */
+  public Adapter createatribAdapter()
   {
     return null;
   }

@@ -27,7 +27,7 @@ public class PascalParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Model";
+		return "Pascal";
 	}
 
 	public PascalGrammarAccess getGrammarAccess() {

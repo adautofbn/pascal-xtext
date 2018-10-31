@@ -3,13 +3,18 @@
  */
 package edu.ufcg.compiladores.pascal.pascal.impl;
 
-import edu.ufcg.compiladores.pascal.pascal.Greeting;
-import edu.ufcg.compiladores.pascal.pascal.Model;
+import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalFactory;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
+import edu.ufcg.compiladores.pascal.pascal.Type;
+import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.program;
+import edu.ufcg.compiladores.pascal.pascal.var_decl;
+import edu.ufcg.compiladores.pascal.pascal.var_list;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -28,14 +33,42 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass modelEClass = null;
+  private EClass pascalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass greetingEClass = null;
+  private EClass programEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass var_declEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass var_listEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass atribEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum typeEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -105,9 +138,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getModel()
+  public EClass getPascal()
   {
-    return modelEClass;
+    return pascalEClass;
   }
 
   /**
@@ -115,9 +148,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Greetings()
+  public EReference getPascal_Element()
   {
-    return (EReference)modelEClass.getEStructuralFeatures().get(0);
+    return (EReference)pascalEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -125,9 +158,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getGreeting()
+  public EClass getprogram()
   {
-    return greetingEClass;
+    return programEClass;
   }
 
   /**
@@ -135,9 +168,109 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getGreeting_Name()
+  public EAttribute getprogram_Name()
   {
-    return (EAttribute)greetingEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)programEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getvar_decl()
+  {
+    return var_declEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getvar_decl_Var_list()
+  {
+    return (EReference)var_declEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getvar_decl_Type()
+  {
+    return (EAttribute)var_declEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getvar_list()
+  {
+    return var_listEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getvar_list_Identifier()
+  {
+    return (EAttribute)var_listEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getvar_list_Var_list()
+  {
+    return (EReference)var_listEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getatrib()
+  {
+    return atribEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getatrib_Identifier()
+  {
+    return (EAttribute)atribEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getatrib_Value()
+  {
+    return (EAttribute)atribEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getType()
+  {
+    return typeEEnum;
   }
 
   /**
@@ -170,11 +303,26 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
     isCreated = true;
 
     // Create classes and their features
-    modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__GREETINGS);
+    pascalEClass = createEClass(PASCAL);
+    createEReference(pascalEClass, PASCAL__ELEMENT);
 
-    greetingEClass = createEClass(GREETING);
-    createEAttribute(greetingEClass, GREETING__NAME);
+    programEClass = createEClass(PROGRAM);
+    createEAttribute(programEClass, PROGRAM__NAME);
+
+    var_declEClass = createEClass(VAR_DECL);
+    createEReference(var_declEClass, VAR_DECL__VAR_LIST);
+    createEAttribute(var_declEClass, VAR_DECL__TYPE);
+
+    var_listEClass = createEClass(VAR_LIST);
+    createEAttribute(var_listEClass, VAR_LIST__IDENTIFIER);
+    createEReference(var_listEClass, VAR_LIST__VAR_LIST);
+
+    atribEClass = createEClass(ATRIB);
+    createEAttribute(atribEClass, ATRIB__IDENTIFIER);
+    createEAttribute(atribEClass, ATRIB__VALUE);
+
+    // Create enums
+    typeEEnum = createEEnum(TYPE);
   }
 
   /**
@@ -208,11 +356,29 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
     // Add supertypes to classes
 
     // Initialize classes and features; add operations and parameters
-    initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Greetings(), this.getGreeting(), null, "greetings", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(pascalEClass, Pascal.class, "Pascal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPascal_Element(), ecorePackage.getEObject(), null, "element", null, 0, -1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(greetingEClass, Greeting.class, "Greeting", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getGreeting_Name(), ecorePackage.getEString(), "name", null, 0, 1, Greeting.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(programEClass, program.class, "program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getprogram_Name(), ecorePackage.getEString(), "name", null, 0, 1, program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(var_declEClass, var_decl.class, "var_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getvar_decl_Var_list(), this.getvar_list(), null, "var_list", null, 0, -1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_decl_Type(), this.getType(), "type", null, 0, -1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(var_listEClass, var_list.class, "var_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getvar_list_Identifier(), ecorePackage.getEString(), "identifier", null, 0, -1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getvar_list_Var_list(), this.getvar_list(), null, "var_list", null, 0, -1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(atribEClass, atrib.class, "atrib", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getatrib_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, atrib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getatrib_Value(), ecorePackage.getEString(), "value", null, 0, 1, atrib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(typeEEnum, Type.class, "Type");
+    addEEnumLiteral(typeEEnum, Type.BOOLEAN);
+    addEEnumLiteral(typeEEnum, Type.INTEGER);
+    addEEnumLiteral(typeEEnum, Type.STRING);
 
     // Create resource
     createResource(eNS_URI);

@@ -35,9 +35,25 @@ public class PascalParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getGreetingAccess().getGroup(), "rule__Greeting__Group__0");
-					put(grammarAccess.getModelAccess().getGreetingsAssignment(), "rule__Model__GreetingsAssignment");
-					put(grammarAccess.getGreetingAccess().getNameAssignment_1(), "rule__Greeting__NameAssignment_1");
+					put(grammarAccess.getSomeValueAccess().getAlternatives(), "rule__SomeValue__Alternatives");
+					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
+					put(grammarAccess.getPascalAccess().getGroup(), "rule__Pascal__Group__0");
+					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
+					put(grammarAccess.getVar_declAccess().getGroup(), "rule__Var_decl__Group__0");
+					put(grammarAccess.getVar_declAccess().getGroup_1(), "rule__Var_decl__Group_1__0");
+					put(grammarAccess.getVar_listAccess().getGroup(), "rule__Var_list__Group__0");
+					put(grammarAccess.getVar_listAccess().getGroup_1(), "rule__Var_list__Group_1__0");
+					put(grammarAccess.getAtribAccess().getGroup(), "rule__Atrib__Group__0");
+					put(grammarAccess.getPascalAccess().getElementAssignment_0(), "rule__Pascal__ElementAssignment_0");
+					put(grammarAccess.getPascalAccess().getElementAssignment_1(), "rule__Pascal__ElementAssignment_1");
+					put(grammarAccess.getPascalAccess().getElementAssignment_2(), "rule__Pascal__ElementAssignment_2");
+					put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
+					put(grammarAccess.getVar_declAccess().getVar_listAssignment_1_0(), "rule__Var_decl__Var_listAssignment_1_0");
+					put(grammarAccess.getVar_declAccess().getTypeAssignment_1_2(), "rule__Var_decl__TypeAssignment_1_2");
+					put(grammarAccess.getVar_listAccess().getIdentifierAssignment_0(), "rule__Var_list__IdentifierAssignment_0");
+					put(grammarAccess.getVar_listAccess().getVar_listAssignment_1_1(), "rule__Var_list__Var_listAssignment_1_1");
+					put(grammarAccess.getAtribAccess().getIdentifierAssignment_0(), "rule__Atrib__IdentifierAssignment_0");
+					put(grammarAccess.getAtribAccess().getValueAssignment_2(), "rule__Atrib__ValueAssignment_2");
 				}
 			};
 		}
@@ -48,7 +64,7 @@ public class PascalParser extends AbstractContentAssistParser {
 	protected Collection<FollowElement> getFollowElements(AbstractInternalContentAssistParser parser) {
 		try {
 			InternalPascalParser typedParser = (InternalPascalParser) parser;
-			typedParser.entryRuleModel();
+			typedParser.entryRulePascal();
 			return typedParser.getFollowElements();
 		} catch(RecognitionException ex) {
 			throw new RuntimeException(ex);

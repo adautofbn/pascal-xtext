@@ -6,6 +6,7 @@ package edu.ufcg.compiladores.pascal.pascal.impl;
 import edu.ufcg.compiladores.pascal.pascal.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -65,8 +66,11 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
   {
     switch (eClass.getClassifierID())
     {
-      case PascalPackage.MODEL: return createModel();
-      case PascalPackage.GREETING: return createGreeting();
+      case PascalPackage.PASCAL: return createPascal();
+      case PascalPackage.PROGRAM: return createprogram();
+      case PascalPackage.VAR_DECL: return createvar_decl();
+      case PascalPackage.VAR_LIST: return createvar_list();
+      case PascalPackage.ATRIB: return createatrib();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -77,10 +81,16 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Model createModel()
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
   {
-    ModelImpl model = new ModelImpl();
-    return model;
+    switch (eDataType.getClassifierID())
+    {
+      case PascalPackage.TYPE:
+        return createTypeFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
   }
 
   /**
@@ -88,10 +98,93 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Greeting createGreeting()
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
   {
-    GreetingImpl greeting = new GreetingImpl();
-    return greeting;
+    switch (eDataType.getClassifierID())
+    {
+      case PascalPackage.TYPE:
+        return convertTypeToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pascal createPascal()
+  {
+    PascalImpl pascal = new PascalImpl();
+    return pascal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public program createprogram()
+  {
+    programImpl program = new programImpl();
+    return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public var_decl createvar_decl()
+  {
+    var_declImpl var_decl = new var_declImpl();
+    return var_decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public var_list createvar_list()
+  {
+    var_listImpl var_list = new var_listImpl();
+    return var_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public atrib createatrib()
+  {
+    atribImpl atrib = new atribImpl();
+    return atrib;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createTypeFromString(EDataType eDataType, String initialValue)
+  {
+    Type result = Type.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

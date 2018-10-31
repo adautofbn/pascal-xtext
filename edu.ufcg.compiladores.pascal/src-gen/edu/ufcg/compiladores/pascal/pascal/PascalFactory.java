@@ -24,22 +24,49 @@ public interface PascalFactory extends EFactory
   PascalFactory eINSTANCE = edu.ufcg.compiladores.pascal.pascal.impl.PascalFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Model</em>'.
+   * Returns a new object of class '<em>Pascal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model</em>'.
+   * @return a new object of class '<em>Pascal</em>'.
    * @generated
    */
-  Model createModel();
+  Pascal createPascal();
 
   /**
-   * Returns a new object of class '<em>Greeting</em>'.
+   * Returns a new object of class '<em>program</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Greeting</em>'.
+   * @return a new object of class '<em>program</em>'.
    * @generated
    */
-  Greeting createGreeting();
+  program createprogram();
+
+  /**
+   * Returns a new object of class '<em>var decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>var decl</em>'.
+   * @generated
+   */
+  var_decl createvar_decl();
+
+  /**
+   * Returns a new object of class '<em>var list</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>var list</em>'.
+   * @generated
+   */
+  var_list createvar_list();
+
+  /**
+   * Returns a new object of class '<em>atrib</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>atrib</em>'.
+   * @generated
+   */
+  atrib createatrib();
 
   /**
    * Returns the package supported by this factory.

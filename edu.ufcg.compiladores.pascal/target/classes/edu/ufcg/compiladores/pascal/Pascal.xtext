@@ -1,9 +1,33 @@
 grammar edu.ufcg.compiladores.pascal.Pascal with org.eclipse.xtext.common.Terminals
 
 generate pascal "http://www.ufcg.edu/compiladores/pascal/Pascal"
-
-Model:
-	greetings+=Greeting*;
 	
-Greeting:
-	'Hello' name=ID '!';
+Pascal:
+	element += program
+	element += var_decl*
+	element += atrib*
+;
+
+program:
+	"program" name=ID";"
+;
+
+var_decl:
+	"var" (var_list+=var_list ":" type+=Type";")+
+;
+
+var_list:
+	identifier+=ID | identifier+=ID "," (var_list+=var_list)+
+;
+
+enum Type:
+	BOOLEAN="Boolean" | INTEGER="Integer" | STRING="String"
+;
+
+atrib:
+	identifier=ID":="value=SomeValue";"
+;
+
+SomeValue:
+	ID | INT | STRING | ANY_OTHER
+;

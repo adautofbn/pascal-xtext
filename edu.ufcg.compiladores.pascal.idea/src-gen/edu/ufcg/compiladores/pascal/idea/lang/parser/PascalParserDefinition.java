@@ -32,14 +32,35 @@ public class PascalParserDefinition extends AbstractXtextParserDefinition {
 		Boolean hasSemanticElement = node.getUserData(IASTNodeAwareNodeModelBuilder.HAS_SEMANTIC_ELEMENT_KEY);
 		if (hasSemanticElement != null && hasSemanticElement) {
 			IElementType elementType = node.getElementType();
-			if (elementType == elementTypeProvider.getModelElementType()) {
+			if (elementType == elementTypeProvider.getPascalElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getModel_GreetingsGreetingParserRuleCall_0ElementType()) {
+			if (elementType == elementTypeProvider.getPascal_ElementProgramParserRuleCall_0_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getGreetingElementType()) {
+			if (elementType == elementTypeProvider.getPascal_ElementVar_declParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getPascal_ElementAtribParserRuleCall_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getProgramElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getVar_declElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getVar_decl_Var_listVar_listParserRuleCall_1_0_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getVar_listElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAtribElementType()) {
+				return new PsiEObjectImpl(node) {};
 			}
 			throw new IllegalStateException("Unexpected element type: " + elementType);
 		}

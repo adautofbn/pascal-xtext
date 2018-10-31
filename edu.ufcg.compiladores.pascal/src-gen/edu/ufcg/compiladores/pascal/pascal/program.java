@@ -7,21 +7,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Greeting</b></em>'.
+ * A representation of the model object '<em><b>program</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.Greeting#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.program#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
- * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getGreeting()
+ * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getprogram()
  * @model
  * @generated
  */
-public interface Greeting extends EObject
+public interface program extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Greeting extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getGreeting_Name()
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getprogram_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.Greeting#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.program#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -49,4 +49,4 @@ public interface Greeting extends EObject
    */
   void setName(String value);
 
-} // Greeting
+} // program

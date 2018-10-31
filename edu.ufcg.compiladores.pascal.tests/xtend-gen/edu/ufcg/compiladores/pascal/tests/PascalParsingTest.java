@@ -4,7 +4,6 @@
 package edu.ufcg.compiladores.pascal.tests;
 
 import com.google.inject.Inject;
-import edu.ufcg.compiladores.pascal.pascal.Model;
 import edu.ufcg.compiladores.pascal.tests.PascalInjectorProvider;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.junit4.InjectWith;
@@ -20,7 +19,7 @@ import org.junit.runner.RunWith;
 @SuppressWarnings("all")
 public class PascalParsingTest {
   @Inject
-  private ParseHelper<Model> parseHelper;
+  private /* ParseHelper<Model> */Object parseHelper;
   
   @Test
   public void loadModel() {

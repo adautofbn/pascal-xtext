@@ -6,11 +6,28 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.10">
   <genPackages prefix="Pascal" basePackage="edu.ufcg.compiladores.pascal" disposableProviderFactory="true"
       fileExtensions="pascal" ecorePackage="Pascal.ecore#/">
-    <genClasses ecoreClass="Pascal.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Model/greetings"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pascal.ecore#//Type">
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/STRING"/>
+    </genEnums>
+    <genClasses ecoreClass="Pascal.ecore#//Pascal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/element"/>
     </genClasses>
-    <genClasses ecoreClass="Pascal.ecore#//Greeting">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//Greeting/name"/>
+    <genClasses ecoreClass="Pascal.ecore#//program">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//program/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//var_decl">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_decl/var_list"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_decl/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//var_list">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/identifier"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_list/var_list"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//atrib">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

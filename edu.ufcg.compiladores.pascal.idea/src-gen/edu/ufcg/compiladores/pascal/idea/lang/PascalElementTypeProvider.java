@@ -27,56 +27,296 @@ public class PascalElementTypeProvider implements IElementTypeProvider {
 
 	private static final PascalGrammarAccess GRAMMAR_ACCESS = PascalLanguage.INSTANCE.getInstance(PascalGrammarAccess.class);
 
-	private static class ModelFactory {
-		public static IGrammarAwareElementType createModelElementType() {
-			return new IGrammarAwareElementType("Model_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getModelRule());
+	private static class PascalFactory {
+		public static IGrammarAwareElementType createPascalElementType() {
+			return new IGrammarAwareElementType("Pascal_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalRule());
 		}
-		public static IGrammarAwareElementType createModel_GreetingsAssignmentElementType() {
-			return new IGrammarAwareElementType("Model_GreetingsAssignment_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getGreetingsAssignment());
+		public static IGrammarAwareElementType createPascal_GroupElementType() {
+			return new IGrammarAwareElementType("Pascal_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getGroup());
 		}
-		public static IGrammarAwareElementType createModel_GreetingsGreetingParserRuleCall_0ElementType() {
-			return new IGrammarAwareElementType("Model_GreetingsGreetingParserRuleCall_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getModelAccess().getGreetingsGreetingParserRuleCall_0());
+		public static IGrammarAwareElementType createPascal_ElementAssignment_0ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementAssignment_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementAssignment_0());
 		}
-	}
-
-	public static final IGrammarAwareElementType Model_ELEMENT_TYPE = associate(ModelFactory.createModelElementType());
-
-	public static final IGrammarAwareElementType Model_GreetingsAssignment_ELEMENT_TYPE = associate(ModelFactory.createModel_GreetingsAssignmentElementType());
-
-	public static final IGrammarAwareElementType Model_GreetingsGreetingParserRuleCall_0_ELEMENT_TYPE = associate(ModelFactory.createModel_GreetingsGreetingParserRuleCall_0ElementType());
-
-	private static class GreetingFactory {
-		public static IGrammarAwareElementType createGreetingElementType() {
-			return new IGrammarAwareElementType("Greeting_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingRule());
+		public static IGrammarAwareElementType createPascal_ElementProgramParserRuleCall_0_0ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementProgramParserRuleCall_0_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementProgramParserRuleCall_0_0());
 		}
-		public static IGrammarAwareElementType createGreeting_GroupElementType() {
-			return new IGrammarAwareElementType("Greeting_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingAccess().getGroup());
+		public static IGrammarAwareElementType createPascal_ElementAssignment_1ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementAssignment_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementAssignment_1());
 		}
-		public static IGrammarAwareElementType createGreeting_HelloKeyword_0ElementType() {
-			return new IGrammarAwareElementType("Greeting_HelloKeyword_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingAccess().getHelloKeyword_0());
+		public static IGrammarAwareElementType createPascal_ElementVar_declParserRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementVar_declParserRuleCall_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementVar_declParserRuleCall_1_0());
 		}
-		public static IGrammarAwareElementType createGreeting_NameAssignment_1ElementType() {
-			return new IGrammarAwareElementType("Greeting_NameAssignment_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingAccess().getNameAssignment_1());
+		public static IGrammarAwareElementType createPascal_ElementAssignment_2ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementAssignment_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementAssignment_2());
 		}
-		public static IGrammarAwareElementType createGreeting_NameIDTerminalRuleCall_1_0ElementType() {
-			return new IGrammarAwareElementType("Greeting_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingAccess().getNameIDTerminalRuleCall_1_0());
-		}
-		public static IGrammarAwareElementType createGreeting_ExclamationMarkKeyword_2ElementType() {
-			return new IGrammarAwareElementType("Greeting_ExclamationMarkKeyword_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getGreetingAccess().getExclamationMarkKeyword_2());
+		public static IGrammarAwareElementType createPascal_ElementAtribParserRuleCall_2_0ElementType() {
+			return new IGrammarAwareElementType("Pascal_ElementAtribParserRuleCall_2_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getPascalAccess().getElementAtribParserRuleCall_2_0());
 		}
 	}
 
-	public static final IGrammarAwareElementType Greeting_ELEMENT_TYPE = associate(GreetingFactory.createGreetingElementType());
+	public static final IGrammarAwareElementType Pascal_ELEMENT_TYPE = associate(PascalFactory.createPascalElementType());
 
-	public static final IGrammarAwareElementType Greeting_Group_ELEMENT_TYPE = associate(GreetingFactory.createGreeting_GroupElementType());
+	public static final IGrammarAwareElementType Pascal_Group_ELEMENT_TYPE = associate(PascalFactory.createPascal_GroupElementType());
 
-	public static final IGrammarAwareElementType Greeting_HelloKeyword_0_ELEMENT_TYPE = associate(GreetingFactory.createGreeting_HelloKeyword_0ElementType());
+	public static final IGrammarAwareElementType Pascal_ElementAssignment_0_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementAssignment_0ElementType());
 
-	public static final IGrammarAwareElementType Greeting_NameAssignment_1_ELEMENT_TYPE = associate(GreetingFactory.createGreeting_NameAssignment_1ElementType());
+	public static final IGrammarAwareElementType Pascal_ElementProgramParserRuleCall_0_0_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementProgramParserRuleCall_0_0ElementType());
 
-	public static final IGrammarAwareElementType Greeting_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE = associate(GreetingFactory.createGreeting_NameIDTerminalRuleCall_1_0ElementType());
+	public static final IGrammarAwareElementType Pascal_ElementAssignment_1_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementAssignment_1ElementType());
 
-	public static final IGrammarAwareElementType Greeting_ExclamationMarkKeyword_2_ELEMENT_TYPE = associate(GreetingFactory.createGreeting_ExclamationMarkKeyword_2ElementType());
+	public static final IGrammarAwareElementType Pascal_ElementVar_declParserRuleCall_1_0_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementVar_declParserRuleCall_1_0ElementType());
+
+	public static final IGrammarAwareElementType Pascal_ElementAssignment_2_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementAssignment_2ElementType());
+
+	public static final IGrammarAwareElementType Pascal_ElementAtribParserRuleCall_2_0_ELEMENT_TYPE = associate(PascalFactory.createPascal_ElementAtribParserRuleCall_2_0ElementType());
+
+	private static class ProgramFactory {
+		public static IGrammarAwareElementType createProgramElementType() {
+			return new IGrammarAwareElementType("Program_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramRule());
+		}
+		public static IGrammarAwareElementType createProgram_GroupElementType() {
+			return new IGrammarAwareElementType("Program_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createProgram_ProgramKeyword_0ElementType() {
+			return new IGrammarAwareElementType("Program_ProgramKeyword_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramAccess().getProgramKeyword_0());
+		}
+		public static IGrammarAwareElementType createProgram_NameAssignment_1ElementType() {
+			return new IGrammarAwareElementType("Program_NameAssignment_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramAccess().getNameAssignment_1());
+		}
+		public static IGrammarAwareElementType createProgram_NameIDTerminalRuleCall_1_0ElementType() {
+			return new IGrammarAwareElementType("Program_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramAccess().getNameIDTerminalRuleCall_1_0());
+		}
+		public static IGrammarAwareElementType createProgram_SemicolonKeyword_2ElementType() {
+			return new IGrammarAwareElementType("Program_SemicolonKeyword_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getProgramAccess().getSemicolonKeyword_2());
+		}
+	}
+
+	public static final IGrammarAwareElementType Program_ELEMENT_TYPE = associate(ProgramFactory.createProgramElementType());
+
+	public static final IGrammarAwareElementType Program_Group_ELEMENT_TYPE = associate(ProgramFactory.createProgram_GroupElementType());
+
+	public static final IGrammarAwareElementType Program_ProgramKeyword_0_ELEMENT_TYPE = associate(ProgramFactory.createProgram_ProgramKeyword_0ElementType());
+
+	public static final IGrammarAwareElementType Program_NameAssignment_1_ELEMENT_TYPE = associate(ProgramFactory.createProgram_NameAssignment_1ElementType());
+
+	public static final IGrammarAwareElementType Program_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE = associate(ProgramFactory.createProgram_NameIDTerminalRuleCall_1_0ElementType());
+
+	public static final IGrammarAwareElementType Program_SemicolonKeyword_2_ELEMENT_TYPE = associate(ProgramFactory.createProgram_SemicolonKeyword_2ElementType());
+
+	private static class Var_declFactory {
+		public static IGrammarAwareElementType createVar_declElementType() {
+			return new IGrammarAwareElementType("Var_decl_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declRule());
+		}
+		public static IGrammarAwareElementType createVar_decl_GroupElementType() {
+			return new IGrammarAwareElementType("Var_decl_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createVar_decl_VarKeyword_0ElementType() {
+			return new IGrammarAwareElementType("Var_decl_VarKeyword_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getVarKeyword_0());
+		}
+		public static IGrammarAwareElementType createVar_decl_Group_1ElementType() {
+			return new IGrammarAwareElementType("Var_decl_Group_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getGroup_1());
+		}
+		public static IGrammarAwareElementType createVar_decl_Var_listAssignment_1_0ElementType() {
+			return new IGrammarAwareElementType("Var_decl_Var_listAssignment_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getVar_listAssignment_1_0());
+		}
+		public static IGrammarAwareElementType createVar_decl_Var_listVar_listParserRuleCall_1_0_0ElementType() {
+			return new IGrammarAwareElementType("Var_decl_Var_listVar_listParserRuleCall_1_0_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getVar_listVar_listParserRuleCall_1_0_0());
+		}
+		public static IGrammarAwareElementType createVar_decl_ColonKeyword_1_1ElementType() {
+			return new IGrammarAwareElementType("Var_decl_ColonKeyword_1_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getColonKeyword_1_1());
+		}
+		public static IGrammarAwareElementType createVar_decl_TypeAssignment_1_2ElementType() {
+			return new IGrammarAwareElementType("Var_decl_TypeAssignment_1_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getTypeAssignment_1_2());
+		}
+		public static IGrammarAwareElementType createVar_decl_TypeTypeEnumRuleCall_1_2_0ElementType() {
+			return new IGrammarAwareElementType("Var_decl_TypeTypeEnumRuleCall_1_2_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getTypeTypeEnumRuleCall_1_2_0());
+		}
+		public static IGrammarAwareElementType createVar_decl_SemicolonKeyword_1_3ElementType() {
+			return new IGrammarAwareElementType("Var_decl_SemicolonKeyword_1_3_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_declAccess().getSemicolonKeyword_1_3());
+		}
+	}
+
+	public static final IGrammarAwareElementType Var_decl_ELEMENT_TYPE = associate(Var_declFactory.createVar_declElementType());
+
+	public static final IGrammarAwareElementType Var_decl_Group_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_GroupElementType());
+
+	public static final IGrammarAwareElementType Var_decl_VarKeyword_0_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_VarKeyword_0ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_Group_1_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_Group_1ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_Var_listAssignment_1_0_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_Var_listAssignment_1_0ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_Var_listVar_listParserRuleCall_1_0_0_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_Var_listVar_listParserRuleCall_1_0_0ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_ColonKeyword_1_1_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_ColonKeyword_1_1ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_TypeAssignment_1_2_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_TypeAssignment_1_2ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_TypeTypeEnumRuleCall_1_2_0_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_TypeTypeEnumRuleCall_1_2_0ElementType());
+
+	public static final IGrammarAwareElementType Var_decl_SemicolonKeyword_1_3_ELEMENT_TYPE = associate(Var_declFactory.createVar_decl_SemicolonKeyword_1_3ElementType());
+
+	private static class Var_listFactory {
+		public static IGrammarAwareElementType createVar_listElementType() {
+			return new IGrammarAwareElementType("Var_list_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listRule());
+		}
+		public static IGrammarAwareElementType createVar_list_GroupElementType() {
+			return new IGrammarAwareElementType("Var_list_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createVar_list_IdentifierAssignment_0ElementType() {
+			return new IGrammarAwareElementType("Var_list_IdentifierAssignment_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getIdentifierAssignment_0());
+		}
+		public static IGrammarAwareElementType createVar_list_IdentifierIDTerminalRuleCall_0_0ElementType() {
+			return new IGrammarAwareElementType("Var_list_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getIdentifierIDTerminalRuleCall_0_0());
+		}
+		public static IGrammarAwareElementType createVar_list_Group_1ElementType() {
+			return new IGrammarAwareElementType("Var_list_Group_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getGroup_1());
+		}
+		public static IGrammarAwareElementType createVar_list_CommaKeyword_1_0ElementType() {
+			return new IGrammarAwareElementType("Var_list_CommaKeyword_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getCommaKeyword_1_0());
+		}
+		public static IGrammarAwareElementType createVar_list_Var_listAssignment_1_1ElementType() {
+			return new IGrammarAwareElementType("Var_list_Var_listAssignment_1_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getVar_listAssignment_1_1());
+		}
+		public static IGrammarAwareElementType createVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType() {
+			return new IGrammarAwareElementType("Var_list_Var_listVar_listParserRuleCall_1_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getVar_listAccess().getVar_listVar_listParserRuleCall_1_1_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType Var_list_ELEMENT_TYPE = associate(Var_listFactory.createVar_listElementType());
+
+	public static final IGrammarAwareElementType Var_list_Group_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_GroupElementType());
+
+	public static final IGrammarAwareElementType Var_list_IdentifierAssignment_0_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_IdentifierAssignment_0ElementType());
+
+	public static final IGrammarAwareElementType Var_list_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_IdentifierIDTerminalRuleCall_0_0ElementType());
+
+	public static final IGrammarAwareElementType Var_list_Group_1_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_Group_1ElementType());
+
+	public static final IGrammarAwareElementType Var_list_CommaKeyword_1_0_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_CommaKeyword_1_0ElementType());
+
+	public static final IGrammarAwareElementType Var_list_Var_listAssignment_1_1_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_Var_listAssignment_1_1ElementType());
+
+	public static final IGrammarAwareElementType Var_list_Var_listVar_listParserRuleCall_1_1_0_ELEMENT_TYPE = associate(Var_listFactory.createVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType());
+
+	private static class TypeFactory {
+		public static IGrammarAwareElementType createTypeElementType() {
+			return new IGrammarAwareElementType("Type_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeRule());
+		}
+		public static IGrammarAwareElementType createType_AlternativesElementType() {
+			return new IGrammarAwareElementType("Type_Alternatives_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getAlternatives());
+		}
+		public static IGrammarAwareElementType createType_BOOLEANEnumLiteralDeclaration_0ElementType() {
+			return new IGrammarAwareElementType("Type_BOOLEANEnumLiteralDeclaration_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getBOOLEANEnumLiteralDeclaration_0());
+		}
+		public static IGrammarAwareElementType createType_BOOLEANBooleanKeyword_0_0ElementType() {
+			return new IGrammarAwareElementType("Type_BOOLEANBooleanKeyword_0_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getBOOLEANBooleanKeyword_0_0());
+		}
+		public static IGrammarAwareElementType createType_INTEGEREnumLiteralDeclaration_1ElementType() {
+			return new IGrammarAwareElementType("Type_INTEGEREnumLiteralDeclaration_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getINTEGEREnumLiteralDeclaration_1());
+		}
+		public static IGrammarAwareElementType createType_INTEGERIntegerKeyword_1_0ElementType() {
+			return new IGrammarAwareElementType("Type_INTEGERIntegerKeyword_1_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getINTEGERIntegerKeyword_1_0());
+		}
+		public static IGrammarAwareElementType createType_STRINGEnumLiteralDeclaration_2ElementType() {
+			return new IGrammarAwareElementType("Type_STRINGEnumLiteralDeclaration_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getSTRINGEnumLiteralDeclaration_2());
+		}
+		public static IGrammarAwareElementType createType_STRINGStringKeyword_2_0ElementType() {
+			return new IGrammarAwareElementType("Type_STRINGStringKeyword_2_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getTypeAccess().getSTRINGStringKeyword_2_0());
+		}
+	}
+
+	public static final IGrammarAwareElementType Type_ELEMENT_TYPE = associate(TypeFactory.createTypeElementType());
+
+	public static final IGrammarAwareElementType Type_Alternatives_ELEMENT_TYPE = associate(TypeFactory.createType_AlternativesElementType());
+
+	public static final IGrammarAwareElementType Type_BOOLEANEnumLiteralDeclaration_0_ELEMENT_TYPE = associate(TypeFactory.createType_BOOLEANEnumLiteralDeclaration_0ElementType());
+
+	public static final IGrammarAwareElementType Type_BOOLEANBooleanKeyword_0_0_ELEMENT_TYPE = associate(TypeFactory.createType_BOOLEANBooleanKeyword_0_0ElementType());
+
+	public static final IGrammarAwareElementType Type_INTEGEREnumLiteralDeclaration_1_ELEMENT_TYPE = associate(TypeFactory.createType_INTEGEREnumLiteralDeclaration_1ElementType());
+
+	public static final IGrammarAwareElementType Type_INTEGERIntegerKeyword_1_0_ELEMENT_TYPE = associate(TypeFactory.createType_INTEGERIntegerKeyword_1_0ElementType());
+
+	public static final IGrammarAwareElementType Type_STRINGEnumLiteralDeclaration_2_ELEMENT_TYPE = associate(TypeFactory.createType_STRINGEnumLiteralDeclaration_2ElementType());
+
+	public static final IGrammarAwareElementType Type_STRINGStringKeyword_2_0_ELEMENT_TYPE = associate(TypeFactory.createType_STRINGStringKeyword_2_0ElementType());
+
+	private static class AtribFactory {
+		public static IGrammarAwareElementType createAtribElementType() {
+			return new IGrammarAwareElementType("Atrib_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribRule());
+		}
+		public static IGrammarAwareElementType createAtrib_GroupElementType() {
+			return new IGrammarAwareElementType("Atrib_Group_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getGroup());
+		}
+		public static IGrammarAwareElementType createAtrib_IdentifierAssignment_0ElementType() {
+			return new IGrammarAwareElementType("Atrib_IdentifierAssignment_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getIdentifierAssignment_0());
+		}
+		public static IGrammarAwareElementType createAtrib_IdentifierIDTerminalRuleCall_0_0ElementType() {
+			return new IGrammarAwareElementType("Atrib_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getIdentifierIDTerminalRuleCall_0_0());
+		}
+		public static IGrammarAwareElementType createAtrib_ColonEqualsSignKeyword_1ElementType() {
+			return new IGrammarAwareElementType("Atrib_ColonEqualsSignKeyword_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getColonEqualsSignKeyword_1());
+		}
+		public static IGrammarAwareElementType createAtrib_ValueAssignment_2ElementType() {
+			return new IGrammarAwareElementType("Atrib_ValueAssignment_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getValueAssignment_2());
+		}
+		public static IGrammarAwareElementType createAtrib_ValueSomeValueParserRuleCall_2_0ElementType() {
+			return new IGrammarAwareElementType("Atrib_ValueSomeValueParserRuleCall_2_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getValueSomeValueParserRuleCall_2_0());
+		}
+		public static IGrammarAwareElementType createAtrib_SemicolonKeyword_3ElementType() {
+			return new IGrammarAwareElementType("Atrib_SemicolonKeyword_3_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getAtribAccess().getSemicolonKeyword_3());
+		}
+	}
+
+	public static final IGrammarAwareElementType Atrib_ELEMENT_TYPE = associate(AtribFactory.createAtribElementType());
+
+	public static final IGrammarAwareElementType Atrib_Group_ELEMENT_TYPE = associate(AtribFactory.createAtrib_GroupElementType());
+
+	public static final IGrammarAwareElementType Atrib_IdentifierAssignment_0_ELEMENT_TYPE = associate(AtribFactory.createAtrib_IdentifierAssignment_0ElementType());
+
+	public static final IGrammarAwareElementType Atrib_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE = associate(AtribFactory.createAtrib_IdentifierIDTerminalRuleCall_0_0ElementType());
+
+	public static final IGrammarAwareElementType Atrib_ColonEqualsSignKeyword_1_ELEMENT_TYPE = associate(AtribFactory.createAtrib_ColonEqualsSignKeyword_1ElementType());
+
+	public static final IGrammarAwareElementType Atrib_ValueAssignment_2_ELEMENT_TYPE = associate(AtribFactory.createAtrib_ValueAssignment_2ElementType());
+
+	public static final IGrammarAwareElementType Atrib_ValueSomeValueParserRuleCall_2_0_ELEMENT_TYPE = associate(AtribFactory.createAtrib_ValueSomeValueParserRuleCall_2_0ElementType());
+
+	public static final IGrammarAwareElementType Atrib_SemicolonKeyword_3_ELEMENT_TYPE = associate(AtribFactory.createAtrib_SemicolonKeyword_3ElementType());
+
+	private static class SomeValueFactory {
+		public static IGrammarAwareElementType createSomeValueElementType() {
+			return new IGrammarAwareElementType("SomeValue_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueRule());
+		}
+		public static IGrammarAwareElementType createSomeValue_AlternativesElementType() {
+			return new IGrammarAwareElementType("SomeValue_Alternatives_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueAccess().getAlternatives());
+		}
+		public static IGrammarAwareElementType createSomeValue_IDTerminalRuleCall_0ElementType() {
+			return new IGrammarAwareElementType("SomeValue_IDTerminalRuleCall_0_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueAccess().getIDTerminalRuleCall_0());
+		}
+		public static IGrammarAwareElementType createSomeValue_INTTerminalRuleCall_1ElementType() {
+			return new IGrammarAwareElementType("SomeValue_INTTerminalRuleCall_1_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueAccess().getINTTerminalRuleCall_1());
+		}
+		public static IGrammarAwareElementType createSomeValue_STRINGTerminalRuleCall_2ElementType() {
+			return new IGrammarAwareElementType("SomeValue_STRINGTerminalRuleCall_2_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueAccess().getSTRINGTerminalRuleCall_2());
+		}
+		public static IGrammarAwareElementType createSomeValue_ANY_OTHERTerminalRuleCall_3ElementType() {
+			return new IGrammarAwareElementType("SomeValue_ANY_OTHERTerminalRuleCall_3_ELEMENT_TYPE", PascalLanguage.INSTANCE, GRAMMAR_ACCESS.getSomeValueAccess().getANY_OTHERTerminalRuleCall_3());
+		}
+	}
+
+	public static final IGrammarAwareElementType SomeValue_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValueElementType());
+
+	public static final IGrammarAwareElementType SomeValue_Alternatives_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValue_AlternativesElementType());
+
+	public static final IGrammarAwareElementType SomeValue_IDTerminalRuleCall_0_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValue_IDTerminalRuleCall_0ElementType());
+
+	public static final IGrammarAwareElementType SomeValue_INTTerminalRuleCall_1_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValue_INTTerminalRuleCall_1ElementType());
+
+	public static final IGrammarAwareElementType SomeValue_STRINGTerminalRuleCall_2_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValue_STRINGTerminalRuleCall_2ElementType());
+
+	public static final IGrammarAwareElementType SomeValue_ANY_OTHERTerminalRuleCall_3_ELEMENT_TYPE = associate(SomeValueFactory.createSomeValue_ANY_OTHERTerminalRuleCall_3ElementType());
 
 	@Override
 	public IFileElementType getFileType() {
@@ -88,40 +328,220 @@ public class PascalElementTypeProvider implements IElementTypeProvider {
 		return GRAMMAR_ELEMENT_TYPE.get(grammarElement);
 	}
 	
-	public IGrammarAwareElementType getModelElementType() {
-		return Model_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascalElementType() {
+		return Pascal_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getModel_GreetingsAssignmentElementType() {
-		return Model_GreetingsAssignment_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_GroupElementType() {
+		return Pascal_Group_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getModel_GreetingsGreetingParserRuleCall_0ElementType() {
-		return Model_GreetingsGreetingParserRuleCall_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementAssignment_0ElementType() {
+		return Pascal_ElementAssignment_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreetingElementType() {
-		return Greeting_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementProgramParserRuleCall_0_0ElementType() {
+		return Pascal_ElementProgramParserRuleCall_0_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreeting_GroupElementType() {
-		return Greeting_Group_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementAssignment_1ElementType() {
+		return Pascal_ElementAssignment_1_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreeting_HelloKeyword_0ElementType() {
-		return Greeting_HelloKeyword_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementVar_declParserRuleCall_1_0ElementType() {
+		return Pascal_ElementVar_declParserRuleCall_1_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreeting_NameAssignment_1ElementType() {
-		return Greeting_NameAssignment_1_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementAssignment_2ElementType() {
+		return Pascal_ElementAssignment_2_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreeting_NameIDTerminalRuleCall_1_0ElementType() {
-		return Greeting_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE;
+	public IGrammarAwareElementType getPascal_ElementAtribParserRuleCall_2_0ElementType() {
+		return Pascal_ElementAtribParserRuleCall_2_0_ELEMENT_TYPE;
 	}
 	
-	public IGrammarAwareElementType getGreeting_ExclamationMarkKeyword_2ElementType() {
-		return Greeting_ExclamationMarkKeyword_2_ELEMENT_TYPE;
+	public IGrammarAwareElementType getProgramElementType() {
+		return Program_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getProgram_GroupElementType() {
+		return Program_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getProgram_ProgramKeyword_0ElementType() {
+		return Program_ProgramKeyword_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getProgram_NameAssignment_1ElementType() {
+		return Program_NameAssignment_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getProgram_NameIDTerminalRuleCall_1_0ElementType() {
+		return Program_NameIDTerminalRuleCall_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getProgram_SemicolonKeyword_2ElementType() {
+		return Program_SemicolonKeyword_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_declElementType() {
+		return Var_decl_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_GroupElementType() {
+		return Var_decl_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_VarKeyword_0ElementType() {
+		return Var_decl_VarKeyword_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_Group_1ElementType() {
+		return Var_decl_Group_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_Var_listAssignment_1_0ElementType() {
+		return Var_decl_Var_listAssignment_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_Var_listVar_listParserRuleCall_1_0_0ElementType() {
+		return Var_decl_Var_listVar_listParserRuleCall_1_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_ColonKeyword_1_1ElementType() {
+		return Var_decl_ColonKeyword_1_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_TypeAssignment_1_2ElementType() {
+		return Var_decl_TypeAssignment_1_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_TypeTypeEnumRuleCall_1_2_0ElementType() {
+		return Var_decl_TypeTypeEnumRuleCall_1_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_decl_SemicolonKeyword_1_3ElementType() {
+		return Var_decl_SemicolonKeyword_1_3_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_listElementType() {
+		return Var_list_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_GroupElementType() {
+		return Var_list_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_IdentifierAssignment_0ElementType() {
+		return Var_list_IdentifierAssignment_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_IdentifierIDTerminalRuleCall_0_0ElementType() {
+		return Var_list_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_Group_1ElementType() {
+		return Var_list_Group_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_CommaKeyword_1_0ElementType() {
+		return Var_list_CommaKeyword_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_Var_listAssignment_1_1ElementType() {
+		return Var_list_Var_listAssignment_1_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType() {
+		return Var_list_Var_listVar_listParserRuleCall_1_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getTypeElementType() {
+		return Type_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_AlternativesElementType() {
+		return Type_Alternatives_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_BOOLEANEnumLiteralDeclaration_0ElementType() {
+		return Type_BOOLEANEnumLiteralDeclaration_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_BOOLEANBooleanKeyword_0_0ElementType() {
+		return Type_BOOLEANBooleanKeyword_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_INTEGEREnumLiteralDeclaration_1ElementType() {
+		return Type_INTEGEREnumLiteralDeclaration_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_INTEGERIntegerKeyword_1_0ElementType() {
+		return Type_INTEGERIntegerKeyword_1_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_STRINGEnumLiteralDeclaration_2ElementType() {
+		return Type_STRINGEnumLiteralDeclaration_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getType_STRINGStringKeyword_2_0ElementType() {
+		return Type_STRINGStringKeyword_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtribElementType() {
+		return Atrib_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_GroupElementType() {
+		return Atrib_Group_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_IdentifierAssignment_0ElementType() {
+		return Atrib_IdentifierAssignment_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_IdentifierIDTerminalRuleCall_0_0ElementType() {
+		return Atrib_IdentifierIDTerminalRuleCall_0_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_ColonEqualsSignKeyword_1ElementType() {
+		return Atrib_ColonEqualsSignKeyword_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_ValueAssignment_2ElementType() {
+		return Atrib_ValueAssignment_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_ValueSomeValueParserRuleCall_2_0ElementType() {
+		return Atrib_ValueSomeValueParserRuleCall_2_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getAtrib_SemicolonKeyword_3ElementType() {
+		return Atrib_SemicolonKeyword_3_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValueElementType() {
+		return SomeValue_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValue_AlternativesElementType() {
+		return SomeValue_Alternatives_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValue_IDTerminalRuleCall_0ElementType() {
+		return SomeValue_IDTerminalRuleCall_0_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValue_INTTerminalRuleCall_1ElementType() {
+		return SomeValue_INTTerminalRuleCall_1_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValue_STRINGTerminalRuleCall_2ElementType() {
+		return SomeValue_STRINGTerminalRuleCall_2_ELEMENT_TYPE;
+	}
+	
+	public IGrammarAwareElementType getSomeValue_ANY_OTHERTerminalRuleCall_3ElementType() {
+		return SomeValue_ANY_OTHERTerminalRuleCall_3_ELEMENT_TYPE;
 	}
 
 }

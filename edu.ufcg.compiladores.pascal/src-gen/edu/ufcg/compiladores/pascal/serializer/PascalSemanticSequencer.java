@@ -4,9 +4,12 @@
 package edu.ufcg.compiladores.pascal.serializer;
 
 import com.google.inject.Inject;
-import edu.ufcg.compiladores.pascal.pascal.Greeting;
-import edu.ufcg.compiladores.pascal.pascal.Model;
+import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
+import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.program;
+import edu.ufcg.compiladores.pascal.pascal.var_decl;
+import edu.ufcg.compiladores.pascal.pascal.var_list;
 import edu.ufcg.compiladores.pascal.services.PascalGrammarAccess;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -33,11 +36,20 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == PascalPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case PascalPackage.GREETING:
-				sequence_Greeting(context, (Greeting) semanticObject); 
+			case PascalPackage.PASCAL:
+				sequence_Pascal(context, (Pascal) semanticObject); 
 				return; 
-			case PascalPackage.MODEL:
-				sequence_Model(context, (Model) semanticObject); 
+			case PascalPackage.ATRIB:
+				sequence_atrib(context, (atrib) semanticObject); 
+				return; 
+			case PascalPackage.PROGRAM:
+				sequence_program(context, (program) semanticObject); 
+				return; 
+			case PascalPackage.VAR_DECL:
+				sequence_var_decl(context, (var_decl) semanticObject); 
+				return; 
+			case PascalPackage.VAR_LIST:
+				sequence_var_list(context, (var_list) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,30 +58,75 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     Greeting returns Greeting
+	 *     Pascal returns Pascal
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (element+=program element+=var_decl* element+=atrib*)
 	 */
-	protected void sequence_Greeting(ISerializationContext context, Greeting semanticObject) {
+	protected void sequence_Pascal(ISerializationContext context, Pascal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     atrib returns atrib
+	 *
+	 * Constraint:
+	 *     (identifier=ID value=SomeValue)
+	 */
+	protected void sequence_atrib(ISerializationContext context, atrib semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.GREETING__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.GREETING__NAME));
+			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.ATRIB__IDENTIFIER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.ATRIB__IDENTIFIER));
+			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.ATRIB__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.ATRIB__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getGreetingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getAtribAccess().getIdentifierIDTerminalRuleCall_0_0(), semanticObject.getIdentifier());
+		feeder.accept(grammarAccess.getAtribAccess().getValueSomeValueParserRuleCall_2_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Model returns Model
+	 *     program returns program
 	 *
 	 * Constraint:
-	 *     greetings+=Greeting+
+	 *     name=ID
 	 */
-	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+	protected void sequence_program(ISerializationContext context, program semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.PROGRAM__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.PROGRAM__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getProgramAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     var_decl returns var_decl
+	 *
+	 * Constraint:
+	 *     (var_list+=var_list type+=Type)+
+	 */
+	protected void sequence_var_decl(ISerializationContext context, var_decl semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     var_list returns var_list
+	 *
+	 * Constraint:
+	 *     (identifier+=ID var_list+=var_list*)
+	 */
+	protected void sequence_var_list(ISerializationContext context, var_list semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

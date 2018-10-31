@@ -3,57 +3,55 @@
  */
 package edu.ufcg.compiladores.pascal.pascal.impl;
 
-import edu.ufcg.compiladores.pascal.pascal.Greeting;
+import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Greeting</b></em>'.
+ * An implementation of the model object '<em><b>Pascal</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.GreetingImpl#getName <em>Name</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.PascalImpl#getElement <em>Element</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeting
+public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getElement()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
+  protected EList<EObject> element;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GreetingImpl()
+  protected PascalImpl()
   {
     super();
   }
@@ -66,7 +64,7 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   @Override
   protected EClass eStaticClass()
   {
-    return PascalPackage.Literals.GREETING;
+    return PascalPackage.Literals.PASCAL;
   }
 
   /**
@@ -74,9 +72,13 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<EObject> getElement()
   {
-    return name;
+    if (element == null)
+    {
+      element = new EObjectContainmentEList<EObject>(EObject.class, this, PascalPackage.PASCAL__ELEMENT);
+    }
+    return element;
   }
 
   /**
@@ -84,12 +86,15 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setName(String newName)
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.GREETING__NAME, oldName, name));
+    switch (featureID)
+    {
+      case PascalPackage.PASCAL__ELEMENT:
+        return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -102,8 +107,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case PascalPackage.GREETING__NAME:
-        return getName();
+      case PascalPackage.PASCAL__ELEMENT:
+        return getElement();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -113,13 +118,15 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case PascalPackage.GREETING__NAME:
-        setName((String)newValue);
+      case PascalPackage.PASCAL__ELEMENT:
+        getElement().clear();
+        getElement().addAll((Collection<? extends EObject>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -135,8 +142,8 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case PascalPackage.GREETING__NAME:
-        setName(NAME_EDEFAULT);
+      case PascalPackage.PASCAL__ELEMENT:
+        getElement().clear();
         return;
     }
     super.eUnset(featureID);
@@ -152,27 +159,10 @@ public class GreetingImpl extends MinimalEObjectImpl.Container implements Greeti
   {
     switch (featureID)
     {
-      case PascalPackage.GREETING__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PascalPackage.PASCAL__ELEMENT:
+        return element != null && !element.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
-  }
-
-} //GreetingImpl
+} //PascalImpl

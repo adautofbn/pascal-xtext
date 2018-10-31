@@ -73,17 +73,38 @@ public class PascalSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case PascalPackage.MODEL:
+      case PascalPackage.PASCAL:
       {
-        Model model = (Model)theEObject;
-        T result = caseModel(model);
+        Pascal pascal = (Pascal)theEObject;
+        T result = casePascal(pascal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PascalPackage.GREETING:
+      case PascalPackage.PROGRAM:
       {
-        Greeting greeting = (Greeting)theEObject;
-        T result = caseGreeting(greeting);
+        program program = (program)theEObject;
+        T result = caseprogram(program);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.VAR_DECL:
+      {
+        var_decl var_decl = (var_decl)theEObject;
+        T result = casevar_decl(var_decl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.VAR_LIST:
+      {
+        var_list var_list = (var_list)theEObject;
+        T result = casevar_list(var_list);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.ATRIB:
+      {
+        atrib atrib = (atrib)theEObject;
+        T result = caseatrib(atrib);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,33 +113,81 @@ public class PascalSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Pascal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Pascal</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseModel(Model object)
+  public T casePascal(Pascal object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>program</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Greeting</em>'.
+   * @return the result of interpreting the object as an instance of '<em>program</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseGreeting(Greeting object)
+  public T caseprogram(program object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>var decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>var decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casevar_decl(var_decl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>var list</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>var list</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casevar_list(var_list object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>atrib</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>atrib</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseatrib(atrib object)
   {
     return null;
   }

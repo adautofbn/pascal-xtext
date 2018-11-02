@@ -69,13 +69,31 @@ public interface PascalPackage extends EPackage
   int PASCAL = 0;
 
   /**
-   * The feature id for the '<em><b>Element</b></em>' containment reference list.
+   * The feature id for the '<em><b>Head</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PASCAL__ELEMENT = 0;
+  int PASCAL__HEAD = 0;
+
+  /**
+   * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASCAL__DECLARATIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Scope</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PASCAL__SCOPE = 2;
 
   /**
    * The number of structural features of the '<em>Pascal</em>' class.
@@ -84,7 +102,7 @@ public interface PascalPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PASCAL_FEATURE_COUNT = 1;
+  int PASCAL_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.programImpl <em>program</em>}' class.
@@ -171,13 +189,13 @@ public interface PascalPackage extends EPackage
   int VAR_LIST__IDENTIFIER = 0;
 
   /**
-   * The feature id for the '<em><b>Var list</b></em>' containment reference list.
+   * The feature id for the '<em><b>Vars</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VAR_LIST__VAR_LIST = 1;
+  int VAR_LIST__VARS = 1;
 
   /**
    * The number of structural features of the '<em>var list</em>' class.
@@ -208,13 +226,13 @@ public interface PascalPackage extends EPackage
   int ATRIB__IDENTIFIER = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATRIB__VALUE = 1;
+  int ATRIB__EXP = 1;
 
   /**
    * The number of structural features of the '<em>atrib</em>' class.
@@ -226,6 +244,89 @@ public interface PascalPackage extends EPackage
   int ATRIB_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.expressionImpl <em>expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.ufcg.compiladores.pascal.pascal.impl.expressionImpl
+   * @see edu.ufcg.compiladores.pascal.pascal.impl.PascalPackageImpl#getexpression()
+   * @generated
+   */
+  int EXPRESSION = 5;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__VALUE = 0;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EXP = 1;
+
+  /**
+   * The number of structural features of the '<em>expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl <em>second Exp</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl
+   * @see edu.ufcg.compiladores.pascal.pascal.impl.PascalPackageImpl#getsecondExp()
+   * @generated
+   */
+  int SECOND_EXP = 6;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECOND_EXP__OP = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECOND_EXP__VALUE = 1;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECOND_EXP__EXP = 2;
+
+  /**
+   * The number of structural features of the '<em>second Exp</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECOND_EXP_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link edu.ufcg.compiladores.pascal.pascal.Type <em>Type</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -233,7 +334,7 @@ public interface PascalPackage extends EPackage
    * @see edu.ufcg.compiladores.pascal.pascal.impl.PascalPackageImpl#getType()
    * @generated
    */
-  int TYPE = 5;
+  int TYPE = 7;
 
 
   /**
@@ -247,15 +348,37 @@ public interface PascalPackage extends EPackage
   EClass getPascal();
 
   /**
-   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getElement <em>Element</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getHead <em>Head</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Element</em>'.
-   * @see edu.ufcg.compiladores.pascal.pascal.Pascal#getElement()
+   * @return the meta object for the containment reference '<em>Head</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.Pascal#getHead()
    * @see #getPascal()
    * @generated
    */
-  EReference getPascal_Element();
+  EReference getPascal_Head();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getDeclarations <em>Declarations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Declarations</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.Pascal#getDeclarations()
+   * @see #getPascal()
+   * @generated
+   */
+  EReference getPascal_Declarations();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getScope <em>Scope</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Scope</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.Pascal#getScope()
+   * @see #getPascal()
+   * @generated
+   */
+  EReference getPascal_Scope();
 
   /**
    * Returns the meta object for class '{@link edu.ufcg.compiladores.pascal.pascal.program <em>program</em>}'.
@@ -332,15 +455,15 @@ public interface PascalPackage extends EPackage
   EAttribute getvar_list_Identifier();
 
   /**
-   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_list <em>Var list</em>}'.
+   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVars <em>Vars</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Var list</em>'.
-   * @see edu.ufcg.compiladores.pascal.pascal.var_list#getVar_list()
+   * @return the meta object for the containment reference list '<em>Vars</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.var_list#getVars()
    * @see #getvar_list()
    * @generated
    */
-  EReference getvar_list_Var_list();
+  EReference getvar_list_Vars();
 
   /**
    * Returns the meta object for class '{@link edu.ufcg.compiladores.pascal.pascal.atrib <em>atrib</em>}'.
@@ -364,15 +487,90 @@ public interface PascalPackage extends EPackage
   EAttribute getatrib_Identifier();
 
   /**
-   * Returns the meta object for the attribute '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getValue <em>Value</em>}'.
+   * Returns the meta object for the containment reference '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getExp <em>Exp</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Value</em>'.
-   * @see edu.ufcg.compiladores.pascal.pascal.atrib#getValue()
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.atrib#getExp()
    * @see #getatrib()
    * @generated
    */
-  EAttribute getatrib_Value();
+  EReference getatrib_Exp();
+
+  /**
+   * Returns the meta object for class '{@link edu.ufcg.compiladores.pascal.pascal.expression <em>expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>expression</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.expression
+   * @generated
+   */
+  EClass getexpression();
+
+  /**
+   * Returns the meta object for the attribute '{@link edu.ufcg.compiladores.pascal.pascal.expression#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.expression#getValue()
+   * @see #getexpression()
+   * @generated
+   */
+  EAttribute getexpression_Value();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.expression#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Exp</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.expression#getExp()
+   * @see #getexpression()
+   * @generated
+   */
+  EReference getexpression_Exp();
+
+  /**
+   * Returns the meta object for class '{@link edu.ufcg.compiladores.pascal.pascal.secondExp <em>second Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>second Exp</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.secondExp
+   * @generated
+   */
+  EClass getsecondExp();
+
+  /**
+   * Returns the meta object for the attribute '{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.secondExp#getOp()
+   * @see #getsecondExp()
+   * @generated
+   */
+  EAttribute getsecondExp_Op();
+
+  /**
+   * Returns the meta object for the attribute '{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.secondExp#getValue()
+   * @see #getsecondExp()
+   * @generated
+   */
+  EAttribute getsecondExp_Value();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Exp</em>'.
+   * @see edu.ufcg.compiladores.pascal.pascal.secondExp#getExp()
+   * @see #getsecondExp()
+   * @generated
+   */
+  EReference getsecondExp_Exp();
 
   /**
    * Returns the meta object for enum '{@link edu.ufcg.compiladores.pascal.pascal.Type <em>Type</em>}'.
@@ -418,12 +616,28 @@ public interface PascalPackage extends EPackage
     EClass PASCAL = eINSTANCE.getPascal();
 
     /**
-     * The meta object literal for the '<em><b>Element</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Head</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PASCAL__ELEMENT = eINSTANCE.getPascal_Element();
+    EReference PASCAL__HEAD = eINSTANCE.getPascal_Head();
+
+    /**
+     * The meta object literal for the '<em><b>Declarations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PASCAL__DECLARATIONS = eINSTANCE.getPascal_Declarations();
+
+    /**
+     * The meta object literal for the '<em><b>Scope</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PASCAL__SCOPE = eINSTANCE.getPascal_Scope();
 
     /**
      * The meta object literal for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.programImpl <em>program</em>}' class.
@@ -488,12 +702,12 @@ public interface PascalPackage extends EPackage
     EAttribute VAR_LIST__IDENTIFIER = eINSTANCE.getvar_list_Identifier();
 
     /**
-     * The meta object literal for the '<em><b>Var list</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Vars</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference VAR_LIST__VAR_LIST = eINSTANCE.getvar_list_Var_list();
+    EReference VAR_LIST__VARS = eINSTANCE.getvar_list_Vars();
 
     /**
      * The meta object literal for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl <em>atrib</em>}' class.
@@ -514,12 +728,72 @@ public interface PascalPackage extends EPackage
     EAttribute ATRIB__IDENTIFIER = eINSTANCE.getatrib_Identifier();
 
     /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATRIB__EXP = eINSTANCE.getatrib_Exp();
+
+    /**
+     * The meta object literal for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.expressionImpl <em>expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.ufcg.compiladores.pascal.pascal.impl.expressionImpl
+     * @see edu.ufcg.compiladores.pascal.pascal.impl.PascalPackageImpl#getexpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getexpression();
+
+    /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute ATRIB__VALUE = eINSTANCE.getatrib_Value();
+    EAttribute EXPRESSION__VALUE = eINSTANCE.getexpression_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__EXP = eINSTANCE.getexpression_Exp();
+
+    /**
+     * The meta object literal for the '{@link edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl <em>second Exp</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl
+     * @see edu.ufcg.compiladores.pascal.pascal.impl.PascalPackageImpl#getsecondExp()
+     * @generated
+     */
+    EClass SECOND_EXP = eINSTANCE.getsecondExp();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECOND_EXP__OP = eINSTANCE.getsecondExp_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SECOND_EXP__VALUE = eINSTANCE.getsecondExp_Value();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SECOND_EXP__EXP = eINSTANCE.getsecondExp_Exp();
 
     /**
      * The meta object literal for the '{@link edu.ufcg.compiladores.pascal.pascal.Type <em>Type</em>}' enum.

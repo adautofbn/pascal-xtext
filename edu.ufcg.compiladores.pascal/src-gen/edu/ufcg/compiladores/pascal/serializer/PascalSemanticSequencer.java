@@ -7,7 +7,9 @@ import com.google.inject.Inject;
 import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
 import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.expression;
 import edu.ufcg.compiladores.pascal.pascal.program;
+import edu.ufcg.compiladores.pascal.pascal.secondExp;
 import edu.ufcg.compiladores.pascal.pascal.var_decl;
 import edu.ufcg.compiladores.pascal.pascal.var_list;
 import edu.ufcg.compiladores.pascal.services.PascalGrammarAccess;
@@ -42,8 +44,14 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case PascalPackage.ATRIB:
 				sequence_atrib(context, (atrib) semanticObject); 
 				return; 
+			case PascalPackage.EXPRESSION:
+				sequence_expression(context, (expression) semanticObject); 
+				return; 
 			case PascalPackage.PROGRAM:
 				sequence_program(context, (program) semanticObject); 
+				return; 
+			case PascalPackage.SECOND_EXP:
+				sequence_secondExp(context, (secondExp) semanticObject); 
 				return; 
 			case PascalPackage.VAR_DECL:
 				sequence_var_decl(context, (var_decl) semanticObject); 
@@ -61,7 +69,7 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     Pascal returns Pascal
 	 *
 	 * Constraint:
-	 *     (element+=program element+=var_decl* element+=atrib*)
+	 *     (head=program declarations+=var_decl* scope+=atrib*)
 	 */
 	protected void sequence_Pascal(ISerializationContext context, Pascal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -73,19 +81,31 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     atrib returns atrib
 	 *
 	 * Constraint:
-	 *     (identifier=ID value=SomeValue)
+	 *     (identifier=ID exp=expression)
 	 */
 	protected void sequence_atrib(ISerializationContext context, atrib semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.ATRIB__IDENTIFIER) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.ATRIB__IDENTIFIER));
-			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.ATRIB__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.ATRIB__VALUE));
+			if (transientValues.isValueTransient(semanticObject, PascalPackage.Literals.ATRIB__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PascalPackage.Literals.ATRIB__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAtribAccess().getIdentifierIDTerminalRuleCall_0_0(), semanticObject.getIdentifier());
-		feeder.accept(grammarAccess.getAtribAccess().getValueSomeValueParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.accept(grammarAccess.getAtribAccess().getExpExpressionParserRuleCall_2_0(), semanticObject.getExp());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     expression returns expression
+	 *
+	 * Constraint:
+	 *     (value=SomeValue exp+=secondExp*)
+	 */
+	protected void sequence_expression(ISerializationContext context, expression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -109,6 +129,18 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     secondExp returns secondExp
+	 *
+	 * Constraint:
+	 *     (op=operator value=SomeValue exp+=secondExp*)
+	 */
+	protected void sequence_secondExp(ISerializationContext context, secondExp semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     var_decl returns var_decl
 	 *
 	 * Constraint:
@@ -124,7 +156,7 @@ public class PascalSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     var_list returns var_list
 	 *
 	 * Constraint:
-	 *     (identifier+=ID var_list+=var_list*)
+	 *     (identifier+=ID | (identifier+=ID vars+=var_list+))
 	 */
 	protected void sequence_var_list(ISerializationContext context, var_list semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

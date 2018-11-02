@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_listImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_listImpl#getVar_list <em>Var list</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_listImpl#getVars <em>Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -48,14 +48,14 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
   protected EList<String> identifier;
 
   /**
-   * The cached value of the '{@link #getVar_list() <em>Var list</em>}' containment reference list.
+   * The cached value of the '{@link #getVars() <em>Vars</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar_list()
+   * @see #getVars()
    * @generated
    * @ordered
    */
-  protected EList<var_list> var_list;
+  protected EList<var_list> vars;
 
   /**
    * <!-- begin-user-doc -->
@@ -97,13 +97,13 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<var_list> getVar_list()
+  public EList<var_list> getVars()
   {
-    if (var_list == null)
+    if (vars == null)
     {
-      var_list = new EObjectContainmentEList<var_list>(var_list.class, this, PascalPackage.VAR_LIST__VAR_LIST);
+      vars = new EObjectContainmentEList<var_list>(var_list.class, this, PascalPackage.VAR_LIST__VARS);
     }
-    return var_list;
+    return vars;
   }
 
   /**
@@ -116,8 +116,8 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
   {
     switch (featureID)
     {
-      case PascalPackage.VAR_LIST__VAR_LIST:
-        return ((InternalEList<?>)getVar_list()).basicRemove(otherEnd, msgs);
+      case PascalPackage.VAR_LIST__VARS:
+        return ((InternalEList<?>)getVars()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -134,8 +134,8 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
     {
       case PascalPackage.VAR_LIST__IDENTIFIER:
         return getIdentifier();
-      case PascalPackage.VAR_LIST__VAR_LIST:
-        return getVar_list();
+      case PascalPackage.VAR_LIST__VARS:
+        return getVars();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -155,9 +155,9 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
         getIdentifier().clear();
         getIdentifier().addAll((Collection<? extends String>)newValue);
         return;
-      case PascalPackage.VAR_LIST__VAR_LIST:
-        getVar_list().clear();
-        getVar_list().addAll((Collection<? extends var_list>)newValue);
+      case PascalPackage.VAR_LIST__VARS:
+        getVars().clear();
+        getVars().addAll((Collection<? extends var_list>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -176,8 +176,8 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
       case PascalPackage.VAR_LIST__IDENTIFIER:
         getIdentifier().clear();
         return;
-      case PascalPackage.VAR_LIST__VAR_LIST:
-        getVar_list().clear();
+      case PascalPackage.VAR_LIST__VARS:
+        getVars().clear();
         return;
     }
     super.eUnset(featureID);
@@ -195,8 +195,8 @@ public class var_listImpl extends MinimalEObjectImpl.Container implements var_li
     {
       case PascalPackage.VAR_LIST__IDENTIFIER:
         return identifier != null && !identifier.isEmpty();
-      case PascalPackage.VAR_LIST__VAR_LIST:
-        return var_list != null && !var_list.isEmpty();
+      case PascalPackage.VAR_LIST__VARS:
+        return vars != null && !vars.isEmpty();
     }
     return super.eIsSet(featureID);
   }

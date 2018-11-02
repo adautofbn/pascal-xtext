@@ -3,9 +3,7 @@ grammar edu.ufcg.compiladores.pascal.Pascal with org.eclipse.xtext.common.Termin
 generate pascal "http://www.ufcg.edu/compiladores/pascal/Pascal"
 	
 Pascal:
-	element += program
-	element += var_decl*
-	element += atrib*
+	(head=program declarations+=var_decl* scope+=atrib*)?
 ;
 
 program:
@@ -17,17 +15,49 @@ var_decl:
 ;
 
 var_list:
-	identifier+=ID | identifier+=ID "," (var_list+=var_list)+
+	identifier+=ID | identifier+=ID "," (vars+=var_list)+
 ;
 
 enum Type:
-	BOOLEAN="Boolean" | INTEGER="Integer" | STRING="String"
+	BOOLEAN="boolean" | INTEGER="integer" | STRING="string"
 ;
 
 atrib:
-	identifier=ID":="value=SomeValue";"
+	identifier=ID":="exp=expression";"
+;
+
+expression:
+	value=SomeValue exp+=secondExp*
+;
+
+secondExp:
+	op=operator value=SomeValue exp+=secondExp*
+;
+
+operator:
+	arit_op | rel_op
+;
+
+arit_op:
+	"+" | "-" | "*" | "div" | "mod"
+;
+
+rel_op:
+	">" | "<" | ">=" | "<=" | "=" | "<>"
 ;
 
 SomeValue:
-	ID | INT | STRING | ANY_OTHER
+	ID | INT | STRING
+;
+
+terminal STRING:
+	"'" ('a'..'z' |'A'..'Z'|'_'|'0'..'9' | '^' | "?" | "." | "/" | "\\" | "*" | "%" | "&" | "@" | "#" | "(" | ")" | "$" | "=" | "{" | "}" | "[" | "]" | "," | "!" |"|" | "+" | "-")* "'"
+;
+
+terminal MULTI_LINE_COMMENT:
+	 '{*' -> '*}' | '(*' -> '*)'
+;
+
+terminal SINGLE_LINE_COMMENT:
+	'{' !('\n'|'\r')* '}' ('\r'? '\n')?
 ;

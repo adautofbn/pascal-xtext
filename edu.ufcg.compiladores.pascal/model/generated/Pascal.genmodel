@@ -12,7 +12,9 @@
       <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/STRING"/>
     </genEnums>
     <genClasses ecoreClass="Pascal.ecore#//Pascal">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/element"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/head"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/declarations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/scope"/>
     </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//program/name"/>
@@ -23,11 +25,20 @@
     </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//var_list">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_list/var_list"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_list/vars"/>
     </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//atrib">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/identifier"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//atrib/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//expression/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//expression/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//secondExp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//secondExp/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//secondExp/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//secondExp/exp"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

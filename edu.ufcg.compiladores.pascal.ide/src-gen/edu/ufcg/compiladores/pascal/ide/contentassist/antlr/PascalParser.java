@@ -35,25 +35,36 @@ public class PascalParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getVar_listAccess().getAlternatives(), "rule__Var_list__Alternatives");
+					put(grammarAccess.getOperatorAccess().getAlternatives(), "rule__Operator__Alternatives");
+					put(grammarAccess.getArit_opAccess().getAlternatives(), "rule__Arit_op__Alternatives");
+					put(grammarAccess.getRel_opAccess().getAlternatives(), "rule__Rel_op__Alternatives");
 					put(grammarAccess.getSomeValueAccess().getAlternatives(), "rule__SomeValue__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getPascalAccess().getGroup(), "rule__Pascal__Group__0");
 					put(grammarAccess.getProgramAccess().getGroup(), "rule__Program__Group__0");
 					put(grammarAccess.getVar_declAccess().getGroup(), "rule__Var_decl__Group__0");
 					put(grammarAccess.getVar_declAccess().getGroup_1(), "rule__Var_decl__Group_1__0");
-					put(grammarAccess.getVar_listAccess().getGroup(), "rule__Var_list__Group__0");
 					put(grammarAccess.getVar_listAccess().getGroup_1(), "rule__Var_list__Group_1__0");
 					put(grammarAccess.getAtribAccess().getGroup(), "rule__Atrib__Group__0");
-					put(grammarAccess.getPascalAccess().getElementAssignment_0(), "rule__Pascal__ElementAssignment_0");
-					put(grammarAccess.getPascalAccess().getElementAssignment_1(), "rule__Pascal__ElementAssignment_1");
-					put(grammarAccess.getPascalAccess().getElementAssignment_2(), "rule__Pascal__ElementAssignment_2");
+					put(grammarAccess.getExpressionAccess().getGroup(), "rule__Expression__Group__0");
+					put(grammarAccess.getSecondExpAccess().getGroup(), "rule__SecondExp__Group__0");
+					put(grammarAccess.getPascalAccess().getHeadAssignment_0(), "rule__Pascal__HeadAssignment_0");
+					put(grammarAccess.getPascalAccess().getDeclarationsAssignment_1(), "rule__Pascal__DeclarationsAssignment_1");
+					put(grammarAccess.getPascalAccess().getScopeAssignment_2(), "rule__Pascal__ScopeAssignment_2");
 					put(grammarAccess.getProgramAccess().getNameAssignment_1(), "rule__Program__NameAssignment_1");
 					put(grammarAccess.getVar_declAccess().getVar_listAssignment_1_0(), "rule__Var_decl__Var_listAssignment_1_0");
 					put(grammarAccess.getVar_declAccess().getTypeAssignment_1_2(), "rule__Var_decl__TypeAssignment_1_2");
 					put(grammarAccess.getVar_listAccess().getIdentifierAssignment_0(), "rule__Var_list__IdentifierAssignment_0");
-					put(grammarAccess.getVar_listAccess().getVar_listAssignment_1_1(), "rule__Var_list__Var_listAssignment_1_1");
+					put(grammarAccess.getVar_listAccess().getIdentifierAssignment_1_0(), "rule__Var_list__IdentifierAssignment_1_0");
+					put(grammarAccess.getVar_listAccess().getVarsAssignment_1_2(), "rule__Var_list__VarsAssignment_1_2");
 					put(grammarAccess.getAtribAccess().getIdentifierAssignment_0(), "rule__Atrib__IdentifierAssignment_0");
-					put(grammarAccess.getAtribAccess().getValueAssignment_2(), "rule__Atrib__ValueAssignment_2");
+					put(grammarAccess.getAtribAccess().getExpAssignment_2(), "rule__Atrib__ExpAssignment_2");
+					put(grammarAccess.getExpressionAccess().getValueAssignment_0(), "rule__Expression__ValueAssignment_0");
+					put(grammarAccess.getExpressionAccess().getExpAssignment_1(), "rule__Expression__ExpAssignment_1");
+					put(grammarAccess.getSecondExpAccess().getOpAssignment_0(), "rule__SecondExp__OpAssignment_0");
+					put(grammarAccess.getSecondExpAccess().getValueAssignment_1(), "rule__SecondExp__ValueAssignment_1");
+					put(grammarAccess.getSecondExpAccess().getExpAssignment_2(), "rule__SecondExp__ExpAssignment_2");
 				}
 			};
 		}

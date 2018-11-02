@@ -15,7 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getElement <em>Element</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getHead <em>Head</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getDeclarations <em>Declarations</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getScope <em>Scope</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,19 +28,61 @@ import org.eclipse.emf.ecore.EObject;
 public interface Pascal extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Element</b></em>' containment reference list.
-   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
+   * Returns the value of the '<em><b>Head</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Element</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Head</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Element</em>' containment reference list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getPascal_Element()
+   * @return the value of the '<em>Head</em>' containment reference.
+   * @see #setHead(program)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getPascal_Head()
    * @model containment="true"
    * @generated
    */
-  EList<EObject> getElement();
+  program getHead();
+
+  /**
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.Pascal#getHead <em>Head</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Head</em>' containment reference.
+   * @see #getHead()
+   * @generated
+   */
+  void setHead(program value);
+
+  /**
+   * Returns the value of the '<em><b>Declarations</b></em>' containment reference list.
+   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_decl}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Declarations</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Declarations</em>' containment reference list.
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getPascal_Declarations()
+   * @model containment="true"
+   * @generated
+   */
+  EList<var_decl> getDeclarations();
+
+  /**
+   * Returns the value of the '<em><b>Scope</b></em>' containment reference list.
+   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.atrib}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Scope</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Scope</em>' containment reference list.
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getPascal_Scope()
+   * @model containment="true"
+   * @generated
+   */
+  EList<atrib> getScope();
 
 } // Pascal

@@ -35,13 +35,13 @@ public class PascalParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getPascalElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getPascal_ElementProgramParserRuleCall_0_0ElementType()) {
+			if (elementType == elementTypeProvider.getPascal_HeadProgramParserRuleCall_0_0ElementType()) {
 				return new PsiNamedEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getPascal_ElementVar_declParserRuleCall_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getPascal_DeclarationsVar_declParserRuleCall_1_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getPascal_ElementAtribParserRuleCall_2_0ElementType()) {
+			if (elementType == elementTypeProvider.getPascal_ScopeAtribParserRuleCall_2_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getProgramElementType()) {
@@ -56,10 +56,25 @@ public class PascalParserDefinition extends AbstractXtextParserDefinition {
 			if (elementType == elementTypeProvider.getVar_listElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
-			if (elementType == elementTypeProvider.getVar_list_Var_listVar_listParserRuleCall_1_1_0ElementType()) {
+			if (elementType == elementTypeProvider.getVar_list_VarsVar_listParserRuleCall_1_2_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			if (elementType == elementTypeProvider.getAtribElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getAtrib_ExpExpressionParserRuleCall_2_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getExpressionElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getExpression_ExpSecondExpParserRuleCall_1_0ElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getSecondExpElementType()) {
+				return new PsiEObjectImpl(node) {};
+			}
+			if (elementType == elementTypeProvider.getSecondExp_ExpSecondExpParserRuleCall_2_0ElementType()) {
 				return new PsiEObjectImpl(node) {};
 			}
 			throw new IllegalStateException("Unexpected element type: " + elementType);

@@ -5,17 +5,21 @@ package edu.ufcg.compiladores.pascal.pascal.impl;
 
 import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
+import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.program;
+import edu.ufcg.compiladores.pascal.pascal.var_decl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -28,7 +32,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.PascalImpl#getElement <em>Element</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.PascalImpl#getHead <em>Head</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.PascalImpl#getDeclarations <em>Declarations</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.PascalImpl#getScope <em>Scope</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,14 +43,34 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
 {
   /**
-   * The cached value of the '{@link #getElement() <em>Element</em>}' containment reference list.
+   * The cached value of the '{@link #getHead() <em>Head</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElement()
+   * @see #getHead()
    * @generated
    * @ordered
    */
-  protected EList<EObject> element;
+  protected program head;
+
+  /**
+   * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDeclarations()
+   * @generated
+   * @ordered
+   */
+  protected EList<var_decl> declarations;
+
+  /**
+   * The cached value of the '{@link #getScope() <em>Scope</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getScope()
+   * @generated
+   * @ordered
+   */
+  protected EList<atrib> scope;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +98,75 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<EObject> getElement()
+  public program getHead()
   {
-    if (element == null)
+    return head;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetHead(program newHead, NotificationChain msgs)
+  {
+    program oldHead = head;
+    head = newHead;
+    if (eNotificationRequired())
     {
-      element = new EObjectContainmentEList<EObject>(EObject.class, this, PascalPackage.PASCAL__ELEMENT);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PascalPackage.PASCAL__HEAD, oldHead, newHead);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return element;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setHead(program newHead)
+  {
+    if (newHead != head)
+    {
+      NotificationChain msgs = null;
+      if (head != null)
+        msgs = ((InternalEObject)head).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PascalPackage.PASCAL__HEAD, null, msgs);
+      if (newHead != null)
+        msgs = ((InternalEObject)newHead).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PascalPackage.PASCAL__HEAD, null, msgs);
+      msgs = basicSetHead(newHead, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.PASCAL__HEAD, newHead, newHead));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<var_decl> getDeclarations()
+  {
+    if (declarations == null)
+    {
+      declarations = new EObjectContainmentEList<var_decl>(var_decl.class, this, PascalPackage.PASCAL__DECLARATIONS);
+    }
+    return declarations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<atrib> getScope()
+  {
+    if (scope == null)
+    {
+      scope = new EObjectContainmentEList<atrib>(atrib.class, this, PascalPackage.PASCAL__SCOPE);
+    }
+    return scope;
   }
 
   /**
@@ -91,8 +179,12 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
   {
     switch (featureID)
     {
-      case PascalPackage.PASCAL__ELEMENT:
-        return ((InternalEList<?>)getElement()).basicRemove(otherEnd, msgs);
+      case PascalPackage.PASCAL__HEAD:
+        return basicSetHead(null, msgs);
+      case PascalPackage.PASCAL__DECLARATIONS:
+        return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
+      case PascalPackage.PASCAL__SCOPE:
+        return ((InternalEList<?>)getScope()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +199,12 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
   {
     switch (featureID)
     {
-      case PascalPackage.PASCAL__ELEMENT:
-        return getElement();
+      case PascalPackage.PASCAL__HEAD:
+        return getHead();
+      case PascalPackage.PASCAL__DECLARATIONS:
+        return getDeclarations();
+      case PascalPackage.PASCAL__SCOPE:
+        return getScope();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +220,16 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
   {
     switch (featureID)
     {
-      case PascalPackage.PASCAL__ELEMENT:
-        getElement().clear();
-        getElement().addAll((Collection<? extends EObject>)newValue);
+      case PascalPackage.PASCAL__HEAD:
+        setHead((program)newValue);
+        return;
+      case PascalPackage.PASCAL__DECLARATIONS:
+        getDeclarations().clear();
+        getDeclarations().addAll((Collection<? extends var_decl>)newValue);
+        return;
+      case PascalPackage.PASCAL__SCOPE:
+        getScope().clear();
+        getScope().addAll((Collection<? extends atrib>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +245,14 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
   {
     switch (featureID)
     {
-      case PascalPackage.PASCAL__ELEMENT:
-        getElement().clear();
+      case PascalPackage.PASCAL__HEAD:
+        setHead((program)null);
+        return;
+      case PascalPackage.PASCAL__DECLARATIONS:
+        getDeclarations().clear();
+        return;
+      case PascalPackage.PASCAL__SCOPE:
+        getScope().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +268,12 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
   {
     switch (featureID)
     {
-      case PascalPackage.PASCAL__ELEMENT:
-        return element != null && !element.isEmpty();
+      case PascalPackage.PASCAL__HEAD:
+        return head != null;
+      case PascalPackage.PASCAL__DECLARATIONS:
+        return declarations != null && !declarations.isEmpty();
+      case PascalPackage.PASCAL__SCOPE:
+        return scope != null && !scope.isEmpty();
     }
     return super.eIsSet(featureID);
   }

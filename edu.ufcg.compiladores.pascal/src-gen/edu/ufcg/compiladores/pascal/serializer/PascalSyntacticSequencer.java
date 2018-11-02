@@ -11,8 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -20,12 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class PascalSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected PascalGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_var_list_CommaKeyword_1_0_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (PascalGrammarAccess) access;
-		match_var_list_CommaKeyword_1_0_q = new TokenAlias(false, true, grammarAccess.getVar_listAccess().getCommaKeyword_1_0());
 	}
 	
 	@Override
@@ -40,21 +36,8 @@ public class PascalSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_var_list_CommaKeyword_1_0_q.equals(syntax))
-				emit_var_list_CommaKeyword_1_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ','?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     var_list+=var_list (ambiguity) var_list+=var_list
-	 */
-	protected void emit_var_list_CommaKeyword_1_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getValue <em>Value</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -51,29 +51,29 @@ public interface atrib extends EObject
   void setIdentifier(String value);
 
   /**
-   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(String)
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getatrib_Value()
-   * @model
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(expression)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getatrib_Exp()
+   * @model containment="true"
    * @generated
    */
-  String getValue();
+  expression getExp();
 
   /**
-   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getExp <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Value</em>' attribute.
-   * @see #getValue()
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
    * @generated
    */
-  void setValue(String value);
+  void setExp(expression value);
 
 } // atrib

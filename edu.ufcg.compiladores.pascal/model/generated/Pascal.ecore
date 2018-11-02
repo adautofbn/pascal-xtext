@@ -3,8 +3,12 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pascal" nsURI="http://www.ufcg.edu/compiladores/pascal/Pascal"
     nsPrefix="pascal">
   <eClassifiers xsi:type="ecore:EClass" name="Pascal">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="element" upperBound="-1"
-        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//program"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
+        eType="#//var_decl" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scope" upperBound="-1"
+        eType="#//atrib" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="program">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -18,16 +22,28 @@
   <eClassifiers xsi:type="ecore:EClass" name="var_list">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" unique="false"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="var_list" upperBound="-1"
-        eType="#//var_list" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vars" upperBound="-1" eType="#//var_list"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Type">
-    <eLiterals name="BOOLEAN" literal="Boolean"/>
-    <eLiterals name="INTEGER" value="1" literal="Integer"/>
-    <eLiterals name="STRING" value="2" literal="String"/>
+    <eLiterals name="BOOLEAN" literal="boolean"/>
+    <eLiterals name="INTEGER" value="1" literal="integer"/>
+    <eLiterals name="STRING" value="2" literal="string"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="atrib">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" upperBound="-1" eType="#//secondExp"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="secondExp">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" upperBound="-1" eType="#//secondExp"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

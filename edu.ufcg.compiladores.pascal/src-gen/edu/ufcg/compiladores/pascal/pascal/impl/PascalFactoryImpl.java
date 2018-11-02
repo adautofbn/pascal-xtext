@@ -71,6 +71,8 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
       case PascalPackage.VAR_DECL: return createvar_decl();
       case PascalPackage.VAR_LIST: return createvar_list();
       case PascalPackage.ATRIB: return createatrib();
+      case PascalPackage.EXPRESSION: return createexpression();
+      case PascalPackage.SECOND_EXP: return createsecondExp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -163,6 +165,28 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
   {
     atribImpl atrib = new atribImpl();
     return atrib;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public expression createexpression()
+  {
+    expressionImpl expression = new expressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public secondExp createsecondExp()
+  {
+    secondExpImpl secondExp = new secondExpImpl();
+    return secondExp;
   }
 
   /**

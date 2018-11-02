@@ -5,10 +5,13 @@ package edu.ufcg.compiladores.pascal.pascal.impl;
 
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
 import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.expression;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -21,7 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,24 +53,14 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
   protected String identifier = IDENTIFIER_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getValue()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String VALUE_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValue()
-   * @generated
-   * @ordered
-   */
-  protected String value = VALUE_EDEFAULT;
+  protected expression exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,9 +111,9 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getValue()
+  public expression getExp()
   {
-    return value;
+    return exp;
   }
 
   /**
@@ -128,12 +121,53 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(String newValue)
+  public NotificationChain basicSetExp(expression newExp, NotificationChain msgs)
   {
-    String oldValue = value;
-    value = newValue;
+    expression oldExp = exp;
+    exp = newExp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.ATRIB__VALUE, oldValue, value));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PascalPackage.ATRIB__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(expression newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PascalPackage.ATRIB__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PascalPackage.ATRIB__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.ATRIB__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case PascalPackage.ATRIB__EXP:
+        return basicSetExp(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -148,8 +182,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
     {
       case PascalPackage.ATRIB__IDENTIFIER:
         return getIdentifier();
-      case PascalPackage.ATRIB__VALUE:
-        return getValue();
+      case PascalPackage.ATRIB__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -167,8 +201,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
       case PascalPackage.ATRIB__IDENTIFIER:
         setIdentifier((String)newValue);
         return;
-      case PascalPackage.ATRIB__VALUE:
-        setValue((String)newValue);
+      case PascalPackage.ATRIB__EXP:
+        setExp((expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -187,8 +221,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
       case PascalPackage.ATRIB__IDENTIFIER:
         setIdentifier(IDENTIFIER_EDEFAULT);
         return;
-      case PascalPackage.ATRIB__VALUE:
-        setValue(VALUE_EDEFAULT);
+      case PascalPackage.ATRIB__EXP:
+        setExp((expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -206,8 +240,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
     {
       case PascalPackage.ATRIB__IDENTIFIER:
         return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
-      case PascalPackage.ATRIB__VALUE:
-        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+      case PascalPackage.ATRIB__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }
@@ -225,8 +259,6 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (identifier: ");
     result.append(identifier);
-    result.append(", value: ");
-    result.append(value);
     result.append(')');
     return result.toString();
   }

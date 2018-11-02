@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_list <em>Var list</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVars <em>Vars</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,19 +43,19 @@ public interface var_list extends EObject
   EList<String> getIdentifier();
 
   /**
-   * Returns the value of the '<em><b>Var list</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Vars</b></em>' containment reference list.
    * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_list}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var list</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Vars</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var list</em>' containment reference list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Var_list()
+   * @return the value of the '<em>Vars</em>' containment reference list.
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Vars()
    * @model containment="true"
    * @generated
    */
-  EList<var_list> getVar_list();
+  EList<var_list> getVars();
 
 } // var_list

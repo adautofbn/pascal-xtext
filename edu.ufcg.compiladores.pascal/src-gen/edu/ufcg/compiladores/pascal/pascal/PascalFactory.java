@@ -69,6 +69,24 @@ public interface PascalFactory extends EFactory
   atrib createatrib();
 
   /**
+   * Returns a new object of class '<em>expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>expression</em>'.
+   * @generated
+   */
+  expression createexpression();
+
+  /**
+   * Returns a new object of class '<em>second Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>second Exp</em>'.
+   * @generated
+   */
+  secondExp createsecondExp();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

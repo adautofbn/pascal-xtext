@@ -28,7 +28,7 @@ public enum Type implements Enumerator
    * @generated
    * @ordered
    */
-  BOOLEAN(0, "BOOLEAN", "Boolean"),
+  BOOLEAN(0, "BOOLEAN", "boolean"),
 
   /**
    * The '<em><b>INTEGER</b></em>' literal object.
@@ -38,7 +38,7 @@ public enum Type implements Enumerator
    * @generated
    * @ordered
    */
-  INTEGER(1, "INTEGER", "Integer"),
+  INTEGER(1, "INTEGER", "integer"),
 
   /**
    * The '<em><b>STRING</b></em>' literal object.
@@ -48,7 +48,7 @@ public enum Type implements Enumerator
    * @generated
    * @ordered
    */
-  STRING(2, "STRING", "String");
+  STRING(2, "STRING", "string");
 
   /**
    * The '<em><b>BOOLEAN</b></em>' literal value.
@@ -59,7 +59,7 @@ public enum Type implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #BOOLEAN
-   * @model literal="Boolean"
+   * @model literal="boolean"
    * @generated
    * @ordered
    */
@@ -74,7 +74,7 @@ public enum Type implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #INTEGER
-   * @model literal="Integer"
+   * @model literal="integer"
    * @generated
    * @ordered
    */
@@ -89,7 +89,7 @@ public enum Type implements Enumerator
    * </p>
    * <!-- end-user-doc -->
    * @see #STRING
-   * @model literal="String"
+   * @model literal="string"
    * @generated
    * @ordered
    */

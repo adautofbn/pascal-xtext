@@ -23,7 +23,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getVar_id <em>Var id</em>}</li>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.atribImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
@@ -33,24 +33,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class atribImpl extends MinimalEObjectImpl.Container implements atrib
 {
   /**
-   * The default value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+   * The default value of the '{@link #getVar_id() <em>Var id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIdentifier()
+   * @see #getVar_id()
    * @generated
    * @ordered
    */
-  protected static final String IDENTIFIER_EDEFAULT = null;
+  protected static final String VAR_ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' attribute.
+   * The cached value of the '{@link #getVar_id() <em>Var id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getIdentifier()
+   * @see #getVar_id()
    * @generated
    * @ordered
    */
-  protected String identifier = IDENTIFIER_EDEFAULT;
+  protected String var_id = VAR_ID_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
@@ -88,9 +88,9 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getIdentifier()
+  public String getVar_id()
   {
-    return identifier;
+    return var_id;
   }
 
   /**
@@ -98,12 +98,12 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdentifier(String newIdentifier)
+  public void setVar_id(String newVar_id)
   {
-    String oldIdentifier = identifier;
-    identifier = newIdentifier;
+    String oldVar_id = var_id;
+    var_id = newVar_id;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.ATRIB__IDENTIFIER, oldIdentifier, identifier));
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.ATRIB__VAR_ID, oldVar_id, var_id));
   }
 
   /**
@@ -180,8 +180,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
   {
     switch (featureID)
     {
-      case PascalPackage.ATRIB__IDENTIFIER:
-        return getIdentifier();
+      case PascalPackage.ATRIB__VAR_ID:
+        return getVar_id();
       case PascalPackage.ATRIB__EXP:
         return getExp();
     }
@@ -198,8 +198,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
   {
     switch (featureID)
     {
-      case PascalPackage.ATRIB__IDENTIFIER:
-        setIdentifier((String)newValue);
+      case PascalPackage.ATRIB__VAR_ID:
+        setVar_id((String)newValue);
         return;
       case PascalPackage.ATRIB__EXP:
         setExp((expression)newValue);
@@ -218,8 +218,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
   {
     switch (featureID)
     {
-      case PascalPackage.ATRIB__IDENTIFIER:
-        setIdentifier(IDENTIFIER_EDEFAULT);
+      case PascalPackage.ATRIB__VAR_ID:
+        setVar_id(VAR_ID_EDEFAULT);
         return;
       case PascalPackage.ATRIB__EXP:
         setExp((expression)null);
@@ -238,8 +238,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
   {
     switch (featureID)
     {
-      case PascalPackage.ATRIB__IDENTIFIER:
-        return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
+      case PascalPackage.ATRIB__VAR_ID:
+        return VAR_ID_EDEFAULT == null ? var_id != null : !VAR_ID_EDEFAULT.equals(var_id);
       case PascalPackage.ATRIB__EXP:
         return exp != null;
     }
@@ -257,8 +257,8 @@ public class atribImpl extends MinimalEObjectImpl.Container implements atrib
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (identifier: ");
-    result.append(identifier);
+    result.append(" (var_id: ");
+    result.append(var_id);
     result.append(')');
     return result.toString();
   }

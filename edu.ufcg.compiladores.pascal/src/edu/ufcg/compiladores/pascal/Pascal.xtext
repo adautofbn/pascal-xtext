@@ -3,39 +3,55 @@ grammar edu.ufcg.compiladores.pascal.Pascal with org.eclipse.xtext.common.Termin
 generate pascal "http://www.ufcg.edu/compiladores/pascal/Pascal"
 	
 Pascal:
-	(head=program declarations+=var_decl* scope+=atrib*)?
+	(head=program declarations+=var_block* scope+=block*)?
 ;
 
 program:
 	"program" name=ID";"
 ;
 
+var_block:
+	"var" (var_statements+=var_decl | var_statements+=var_list)+
+;
+
 var_decl:
-	"var" (var_list+=var_list ":" type+=Type";")+
+	var_id=ID ":" var_type=type ("=" value=some_value)? ";"
 ;
 
 var_list:
-	identifier+=ID | identifier+=ID "," (vars+=var_list)+
+	var_id=ID ("," var_ids+=ID)* ":" var_type=type";"
 ;
 
-enum Type:
+enum type:
 	BOOLEAN="boolean" | INTEGER="integer" | STRING="string"
 ;
 
+block:
+	"begin" statements+=statement "end" "."
+;
+
+statement:
+	atrib_block+=atrib+
+;
+
 atrib:
-	identifier=ID":="exp=expression";"
+	var_id=ID ":=" exp=expression ";"
 ;
 
 expression:
-	value=SomeValue exp+=secondExp*
+	arit_expression | rel_expression
 ;
 
-secondExp:
-	op=operator value=SomeValue exp+=secondExp*
+arit_expression:
+	value=some_value exp+=repetitive_arit_expression*
 ;
 
-operator:
-	arit_op | rel_op
+repetitive_arit_expression:
+	op=arit_op value=some_value exp+=repetitive_arit_expression*
+;
+
+rel_expression:
+	open=open_par first=some_value op=rel_op second=some_value close=close_par
 ;
 
 arit_op:
@@ -43,15 +59,31 @@ arit_op:
 ;
 
 rel_op:
-	">" | "<" | ">=" | "<=" | "=" | "<>"
+	">" | "<" | ">=" | "<="
 ;
 
-SomeValue:
-	ID | INT | STRING
+bool_op:
+	"=" | "<>"
+;
+
+some_value:
+	ID | INT | STRING | BOOLEAN
+;
+
+open_par:
+	("(")?
+;
+
+close_par:
+	(")")?
 ;
 
 terminal STRING:
 	"'" ('a'..'z' |'A'..'Z'|'_'|'0'..'9' | '^' | "?" | "." | "/" | "\\" | "*" | "%" | "&" | "@" | "#" | "(" | ")" | "$" | "=" | "{" | "}" | "[" | "]" | "," | "!" |"|" | "+" | "-")* "'"
+;
+
+terminal BOOLEAN:
+	"true" | "false"
 ;
 
 terminal MULTI_LINE_COMMENT:

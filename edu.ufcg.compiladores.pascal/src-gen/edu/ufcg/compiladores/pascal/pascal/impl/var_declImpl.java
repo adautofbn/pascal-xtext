@@ -4,24 +4,15 @@
 package edu.ufcg.compiladores.pascal.pascal.impl;
 
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
-import edu.ufcg.compiladores.pascal.pascal.Type;
+import edu.ufcg.compiladores.pascal.pascal.type;
 import edu.ufcg.compiladores.pascal.pascal.var_decl;
-import edu.ufcg.compiladores.pascal.pascal.var_list;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,8 +21,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_declImpl#getVar_list <em>Var list</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_declImpl#getType <em>Type</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_declImpl#getVar_id <em>Var id</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_declImpl#getVar_type <em>Var type</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.var_declImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,24 +32,64 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class var_declImpl extends MinimalEObjectImpl.Container implements var_decl
 {
   /**
-   * The cached value of the '{@link #getVar_list() <em>Var list</em>}' containment reference list.
+   * The default value of the '{@link #getVar_id() <em>Var id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVar_list()
+   * @see #getVar_id()
    * @generated
    * @ordered
    */
-  protected EList<var_list> var_list;
+  protected static final String VAR_ID_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getType() <em>Type</em>}' attribute list.
+   * The cached value of the '{@link #getVar_id() <em>Var id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getType()
+   * @see #getVar_id()
    * @generated
    * @ordered
    */
-  protected EList<Type> type;
+  protected String var_id = VAR_ID_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVar_type() <em>Var type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar_type()
+   * @generated
+   * @ordered
+   */
+  protected static final type VAR_TYPE_EDEFAULT = type.BOOLEAN;
+
+  /**
+   * The cached value of the '{@link #getVar_type() <em>Var type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVar_type()
+   * @generated
+   * @ordered
+   */
+  protected type var_type = VAR_TYPE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected static final String VALUE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,13 +117,9 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<var_list> getVar_list()
+  public String getVar_id()
   {
-    if (var_list == null)
-    {
-      var_list = new EObjectContainmentEList<var_list>(var_list.class, this, PascalPackage.VAR_DECL__VAR_LIST);
-    }
-    return var_list;
+    return var_id;
   }
 
   /**
@@ -99,13 +127,12 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getType()
+  public void setVar_id(String newVar_id)
   {
-    if (type == null)
-    {
-      type = new EDataTypeEList<Type>(Type.class, this, PascalPackage.VAR_DECL__TYPE);
-    }
-    return type;
+    String oldVar_id = var_id;
+    var_id = newVar_id;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.VAR_DECL__VAR_ID, oldVar_id, var_id));
   }
 
   /**
@@ -113,15 +140,45 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public type getVar_type()
   {
-    switch (featureID)
-    {
-      case PascalPackage.VAR_DECL__VAR_LIST:
-        return ((InternalEList<?>)getVar_list()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return var_type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVar_type(type newVar_type)
+  {
+    type oldVar_type = var_type;
+    var_type = newVar_type == null ? VAR_TYPE_EDEFAULT : newVar_type;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.VAR_DECL__VAR_TYPE, oldVar_type, var_type));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(String newValue)
+  {
+    String oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.VAR_DECL__VALUE, oldValue, value));
   }
 
   /**
@@ -134,10 +191,12 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
   {
     switch (featureID)
     {
-      case PascalPackage.VAR_DECL__VAR_LIST:
-        return getVar_list();
-      case PascalPackage.VAR_DECL__TYPE:
-        return getType();
+      case PascalPackage.VAR_DECL__VAR_ID:
+        return getVar_id();
+      case PascalPackage.VAR_DECL__VAR_TYPE:
+        return getVar_type();
+      case PascalPackage.VAR_DECL__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -147,19 +206,19 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case PascalPackage.VAR_DECL__VAR_LIST:
-        getVar_list().clear();
-        getVar_list().addAll((Collection<? extends var_list>)newValue);
+      case PascalPackage.VAR_DECL__VAR_ID:
+        setVar_id((String)newValue);
         return;
-      case PascalPackage.VAR_DECL__TYPE:
-        getType().clear();
-        getType().addAll((Collection<? extends Type>)newValue);
+      case PascalPackage.VAR_DECL__VAR_TYPE:
+        setVar_type((type)newValue);
+        return;
+      case PascalPackage.VAR_DECL__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -175,11 +234,14 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
   {
     switch (featureID)
     {
-      case PascalPackage.VAR_DECL__VAR_LIST:
-        getVar_list().clear();
+      case PascalPackage.VAR_DECL__VAR_ID:
+        setVar_id(VAR_ID_EDEFAULT);
         return;
-      case PascalPackage.VAR_DECL__TYPE:
-        getType().clear();
+      case PascalPackage.VAR_DECL__VAR_TYPE:
+        setVar_type(VAR_TYPE_EDEFAULT);
+        return;
+      case PascalPackage.VAR_DECL__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -195,10 +257,12 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
   {
     switch (featureID)
     {
-      case PascalPackage.VAR_DECL__VAR_LIST:
-        return var_list != null && !var_list.isEmpty();
-      case PascalPackage.VAR_DECL__TYPE:
-        return type != null && !type.isEmpty();
+      case PascalPackage.VAR_DECL__VAR_ID:
+        return VAR_ID_EDEFAULT == null ? var_id != null : !VAR_ID_EDEFAULT.equals(var_id);
+      case PascalPackage.VAR_DECL__VAR_TYPE:
+        return var_type != VAR_TYPE_EDEFAULT;
+      case PascalPackage.VAR_DECL__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -214,8 +278,12 @@ public class var_declImpl extends MinimalEObjectImpl.Container implements var_de
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (type: ");
-    result.append(type);
+    result.append(" (var_id: ");
+    result.append(var_id);
+    result.append(", var_type: ");
+    result.append(var_type);
+    result.append(", value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }

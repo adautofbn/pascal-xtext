@@ -86,6 +86,11 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
         return createprogramAdapter();
       }
       @Override
+      public Adapter casevar_block(var_block object)
+      {
+        return createvar_blockAdapter();
+      }
+      @Override
       public Adapter casevar_decl(var_decl object)
       {
         return createvar_declAdapter();
@@ -94,6 +99,16 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
       public Adapter casevar_list(var_list object)
       {
         return createvar_listAdapter();
+      }
+      @Override
+      public Adapter caseblock(block object)
+      {
+        return createblockAdapter();
+      }
+      @Override
+      public Adapter casestatement(statement object)
+      {
+        return createstatementAdapter();
       }
       @Override
       public Adapter caseatrib(atrib object)
@@ -106,9 +121,19 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
         return createexpressionAdapter();
       }
       @Override
-      public Adapter casesecondExp(secondExp object)
+      public Adapter casearit_expression(arit_expression object)
       {
-        return createsecondExpAdapter();
+        return createarit_expressionAdapter();
+      }
+      @Override
+      public Adapter caserepetitive_arit_expression(repetitive_arit_expression object)
+      {
+        return createrepetitive_arit_expressionAdapter();
+      }
+      @Override
+      public Adapter caserel_expression(rel_expression object)
+      {
+        return createrel_expressionAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -163,6 +188,21 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.var_block <em>var block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.var_block
+   * @generated
+   */
+  public Adapter createvar_blockAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.var_decl <em>var decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -188,6 +228,36 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createvar_listAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.block <em>block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.block
+   * @generated
+   */
+  public Adapter createblockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.statement <em>statement</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.statement
+   * @generated
+   */
+  public Adapter createstatementAdapter()
   {
     return null;
   }
@@ -223,16 +293,46 @@ public class PascalAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.secondExp <em>second Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.arit_expression <em>arit expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see edu.ufcg.compiladores.pascal.pascal.secondExp
+   * @see edu.ufcg.compiladores.pascal.pascal.arit_expression
    * @generated
    */
-  public Adapter createsecondExpAdapter()
+  public Adapter createarit_expressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression <em>repetitive arit expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression
+   * @generated
+   */
+  public Adapter createrepetitive_arit_expressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link edu.ufcg.compiladores.pascal.pascal.rel_expression <em>rel expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see edu.ufcg.compiladores.pascal.pascal.rel_expression
+   * @generated
+   */
+  public Adapter createrel_expressionAdapter()
   {
     return null;
   }

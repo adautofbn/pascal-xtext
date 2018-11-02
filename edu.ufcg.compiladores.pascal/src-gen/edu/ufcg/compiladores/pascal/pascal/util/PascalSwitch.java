@@ -87,6 +87,13 @@ public class PascalSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PascalPackage.VAR_BLOCK:
+      {
+        var_block var_block = (var_block)theEObject;
+        T result = casevar_block(var_block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PascalPackage.VAR_DECL:
       {
         var_decl var_decl = (var_decl)theEObject;
@@ -98,6 +105,20 @@ public class PascalSwitch<T> extends Switch<T>
       {
         var_list var_list = (var_list)theEObject;
         T result = casevar_list(var_list);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.BLOCK:
+      {
+        block block = (block)theEObject;
+        T result = caseblock(block);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.STATEMENT:
+      {
+        statement statement = (statement)theEObject;
+        T result = casestatement(statement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -115,10 +136,26 @@ public class PascalSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PascalPackage.SECOND_EXP:
+      case PascalPackage.ARIT_EXPRESSION:
       {
-        secondExp secondExp = (secondExp)theEObject;
-        T result = casesecondExp(secondExp);
+        arit_expression arit_expression = (arit_expression)theEObject;
+        T result = casearit_expression(arit_expression);
+        if (result == null) result = caseexpression(arit_expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.REPETITIVE_ARIT_EXPRESSION:
+      {
+        repetitive_arit_expression repetitive_arit_expression = (repetitive_arit_expression)theEObject;
+        T result = caserepetitive_arit_expression(repetitive_arit_expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PascalPackage.REL_EXPRESSION:
+      {
+        rel_expression rel_expression = (rel_expression)theEObject;
+        T result = caserel_expression(rel_expression);
+        if (result == null) result = caseexpression(rel_expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -159,6 +196,22 @@ public class PascalSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>var block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>var block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casevar_block(var_block object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>var decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -186,6 +239,38 @@ public class PascalSwitch<T> extends Switch<T>
    * @generated
    */
   public T casevar_list(var_list object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseblock(block object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>statement</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>statement</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casestatement(statement object)
   {
     return null;
   }
@@ -223,17 +308,49 @@ public class PascalSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>second Exp</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>arit expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>second Exp</em>'.
+   * @return the result of interpreting the object as an instance of '<em>arit expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casesecondExp(secondExp object)
+  public T casearit_expression(arit_expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>repetitive arit expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>repetitive arit expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caserepetitive_arit_expression(repetitive_arit_expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>rel expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>rel expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caserel_expression(rel_expression object)
   {
     return null;
   }

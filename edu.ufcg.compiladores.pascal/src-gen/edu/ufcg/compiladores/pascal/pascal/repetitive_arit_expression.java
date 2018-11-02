@@ -9,23 +9,23 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>second Exp</b></em>'.
+ * A representation of the model object '<em><b>repetitive arit expression</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getOp <em>Op</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getValue <em>Value</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getExp <em>Exp</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression#getOp <em>Op</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression#getValue <em>Value</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
- * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getsecondExp()
+ * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getrepetitive_arit_expression()
  * @model
  * @generated
  */
-public interface secondExp extends EObject
+public interface repetitive_arit_expression extends EObject
 {
   /**
    * Returns the value of the '<em><b>Op</b></em>' attribute.
@@ -37,14 +37,14 @@ public interface secondExp extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Op</em>' attribute.
    * @see #setOp(String)
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getsecondExp_Op()
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getrepetitive_arit_expression_Op()
    * @model
    * @generated
    */
   String getOp();
 
   /**
-   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getOp <em>Op</em>}' attribute.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression#getOp <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Op</em>' attribute.
@@ -63,14 +63,14 @@ public interface secondExp extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getsecondExp_Value()
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getrepetitive_arit_expression_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.secondExp#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.
@@ -81,7 +81,7 @@ public interface secondExp extends EObject
 
   /**
    * Returns the value of the '<em><b>Exp</b></em>' containment reference list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.secondExp}.
+   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Exp</em>' containment reference list isn't clear,
@@ -89,10 +89,10 @@ public interface secondExp extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Exp</em>' containment reference list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getsecondExp_Exp()
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getrepetitive_arit_expression_Exp()
    * @model containment="true"
    * @generated
    */
-  EList<secondExp> getExp();
+  EList<repetitive_arit_expression> getExp();
 
-} // secondExp
+} // repetitive_arit_expression

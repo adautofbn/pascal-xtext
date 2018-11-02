@@ -4,7 +4,8 @@
 package edu.ufcg.compiladores.pascal.pascal.impl;
 
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
-import edu.ufcg.compiladores.pascal.pascal.secondExp;
+import edu.ufcg.compiladores.pascal.pascal.arit_expression;
+import edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression;
 
 import java.util.Collection;
 
@@ -17,48 +18,26 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>second Exp</b></em>'.
+ * An implementation of the model object '<em><b>arit expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl#getOp <em>Op</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl#getValue <em>Value</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.secondExpImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.arit_expressionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.impl.arit_expressionImpl#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class secondExpImpl extends MinimalEObjectImpl.Container implements secondExp
+public class arit_expressionImpl extends expressionImpl implements arit_expression
 {
-  /**
-   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOp()
-   * @generated
-   * @ordered
-   */
-  protected static final String OP_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOp()
-   * @generated
-   * @ordered
-   */
-  protected String op = OP_EDEFAULT;
-
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -87,14 +66,14 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
    * @generated
    * @ordered
    */
-  protected EList<secondExp> exp;
+  protected EList<repetitive_arit_expression> exp;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected secondExpImpl()
+  protected arit_expressionImpl()
   {
     super();
   }
@@ -107,30 +86,7 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   @Override
   protected EClass eStaticClass()
   {
-    return PascalPackage.Literals.SECOND_EXP;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getOp()
-  {
-    return op;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setOp(String newOp)
-  {
-    String oldOp = op;
-    op = newOp;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.SECOND_EXP__OP, oldOp, op));
+    return PascalPackage.Literals.ARIT_EXPRESSION;
   }
 
   /**
@@ -153,7 +109,7 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.SECOND_EXP__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, PascalPackage.ARIT_EXPRESSION__VALUE, oldValue, value));
   }
 
   /**
@@ -161,11 +117,11 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<secondExp> getExp()
+  public EList<repetitive_arit_expression> getExp()
   {
     if (exp == null)
     {
-      exp = new EObjectContainmentEList<secondExp>(secondExp.class, this, PascalPackage.SECOND_EXP__EXP);
+      exp = new EObjectContainmentEList<repetitive_arit_expression>(repetitive_arit_expression.class, this, PascalPackage.ARIT_EXPRESSION__EXP);
     }
     return exp;
   }
@@ -180,7 +136,7 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   {
     switch (featureID)
     {
-      case PascalPackage.SECOND_EXP__EXP:
+      case PascalPackage.ARIT_EXPRESSION__EXP:
         return ((InternalEList<?>)getExp()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -196,11 +152,9 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   {
     switch (featureID)
     {
-      case PascalPackage.SECOND_EXP__OP:
-        return getOp();
-      case PascalPackage.SECOND_EXP__VALUE:
+      case PascalPackage.ARIT_EXPRESSION__VALUE:
         return getValue();
-      case PascalPackage.SECOND_EXP__EXP:
+      case PascalPackage.ARIT_EXPRESSION__EXP:
         return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -217,15 +171,12 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   {
     switch (featureID)
     {
-      case PascalPackage.SECOND_EXP__OP:
-        setOp((String)newValue);
-        return;
-      case PascalPackage.SECOND_EXP__VALUE:
+      case PascalPackage.ARIT_EXPRESSION__VALUE:
         setValue((String)newValue);
         return;
-      case PascalPackage.SECOND_EXP__EXP:
+      case PascalPackage.ARIT_EXPRESSION__EXP:
         getExp().clear();
-        getExp().addAll((Collection<? extends secondExp>)newValue);
+        getExp().addAll((Collection<? extends repetitive_arit_expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -241,13 +192,10 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   {
     switch (featureID)
     {
-      case PascalPackage.SECOND_EXP__OP:
-        setOp(OP_EDEFAULT);
-        return;
-      case PascalPackage.SECOND_EXP__VALUE:
+      case PascalPackage.ARIT_EXPRESSION__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
-      case PascalPackage.SECOND_EXP__EXP:
+      case PascalPackage.ARIT_EXPRESSION__EXP:
         getExp().clear();
         return;
     }
@@ -264,11 +212,9 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
   {
     switch (featureID)
     {
-      case PascalPackage.SECOND_EXP__OP:
-        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case PascalPackage.SECOND_EXP__VALUE:
+      case PascalPackage.ARIT_EXPRESSION__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-      case PascalPackage.SECOND_EXP__EXP:
+      case PascalPackage.ARIT_EXPRESSION__EXP:
         return exp != null && !exp.isEmpty();
     }
     return super.eIsSet(featureID);
@@ -285,12 +231,10 @@ public class secondExpImpl extends MinimalEObjectImpl.Container implements secon
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (op: ");
-    result.append(op);
-    result.append(", value: ");
+    result.append(" (value: ");
     result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //secondExpImpl
+} //arit_expressionImpl

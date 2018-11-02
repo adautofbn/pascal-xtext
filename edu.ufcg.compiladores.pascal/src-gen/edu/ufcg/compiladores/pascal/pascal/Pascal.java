@@ -55,7 +55,7 @@ public interface Pascal extends EObject
 
   /**
    * Returns the value of the '<em><b>Declarations</b></em>' containment reference list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_decl}.
+   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_block}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Declarations</em>' containment reference list isn't clear,
@@ -67,11 +67,11 @@ public interface Pascal extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<var_decl> getDeclarations();
+  EList<var_block> getDeclarations();
 
   /**
    * Returns the value of the '<em><b>Scope</b></em>' containment reference list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.atrib}.
+   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.block}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Scope</em>' containment reference list isn't clear,
@@ -83,6 +83,6 @@ public interface Pascal extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<atrib> getScope();
+  EList<block> getScope();
 
 } // Pascal

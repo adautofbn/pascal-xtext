@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getIdentifier <em>Identifier</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getVar_id <em>Var id</em>}</li>
  *   <li>{@link edu.ufcg.compiladores.pascal.pascal.atrib#getExp <em>Exp</em>}</li>
  * </ul>
  * </p>
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface atrib extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Identifier</b></em>' attribute.
+   * Returns the value of the '<em><b>Var id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Identifier</em>' attribute isn't clear,
+   * If the meaning of the '<em>Var id</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Identifier</em>' attribute.
-   * @see #setIdentifier(String)
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getatrib_Identifier()
+   * @return the value of the '<em>Var id</em>' attribute.
+   * @see #setVar_id(String)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getatrib_Var_id()
    * @model
    * @generated
    */
-  String getIdentifier();
+  String getVar_id();
 
   /**
-   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getIdentifier <em>Identifier</em>}' attribute.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.atrib#getVar_id <em>Var id</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Identifier</em>' attribute.
-   * @see #getIdentifier()
+   * @param value the new value of the '<em>Var id</em>' attribute.
+   * @see #getVar_id()
    * @generated
    */
-  void setIdentifier(String value);
+  void setVar_id(String value);
 
   /**
    * Returns the value of the '<em><b>Exp</b></em>' containment reference.

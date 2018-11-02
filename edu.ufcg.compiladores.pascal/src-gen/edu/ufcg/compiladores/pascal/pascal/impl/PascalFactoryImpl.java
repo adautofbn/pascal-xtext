@@ -68,11 +68,16 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
     {
       case PascalPackage.PASCAL: return createPascal();
       case PascalPackage.PROGRAM: return createprogram();
+      case PascalPackage.VAR_BLOCK: return createvar_block();
       case PascalPackage.VAR_DECL: return createvar_decl();
       case PascalPackage.VAR_LIST: return createvar_list();
+      case PascalPackage.BLOCK: return createblock();
+      case PascalPackage.STATEMENT: return createstatement();
       case PascalPackage.ATRIB: return createatrib();
       case PascalPackage.EXPRESSION: return createexpression();
-      case PascalPackage.SECOND_EXP: return createsecondExp();
+      case PascalPackage.ARIT_EXPRESSION: return createarit_expression();
+      case PascalPackage.REPETITIVE_ARIT_EXPRESSION: return createrepetitive_arit_expression();
+      case PascalPackage.REL_EXPRESSION: return createrel_expression();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -89,7 +94,7 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
     switch (eDataType.getClassifierID())
     {
       case PascalPackage.TYPE:
-        return createTypeFromString(eDataType, initialValue);
+        return createtypeFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -106,7 +111,7 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
     switch (eDataType.getClassifierID())
     {
       case PascalPackage.TYPE:
-        return convertTypeToString(eDataType, instanceValue);
+        return converttypeToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -139,6 +144,17 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public var_block createvar_block()
+  {
+    var_blockImpl var_block = new var_blockImpl();
+    return var_block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public var_decl createvar_decl()
   {
     var_declImpl var_decl = new var_declImpl();
@@ -154,6 +170,28 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
   {
     var_listImpl var_list = new var_listImpl();
     return var_list;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public block createblock()
+  {
+    blockImpl block = new blockImpl();
+    return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public statement createstatement()
+  {
+    statementImpl statement = new statementImpl();
+    return statement;
   }
 
   /**
@@ -183,10 +221,10 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public secondExp createsecondExp()
+  public arit_expression createarit_expression()
   {
-    secondExpImpl secondExp = new secondExpImpl();
-    return secondExp;
+    arit_expressionImpl arit_expression = new arit_expressionImpl();
+    return arit_expression;
   }
 
   /**
@@ -194,9 +232,31 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createTypeFromString(EDataType eDataType, String initialValue)
+  public repetitive_arit_expression createrepetitive_arit_expression()
   {
-    Type result = Type.get(initialValue);
+    repetitive_arit_expressionImpl repetitive_arit_expression = new repetitive_arit_expressionImpl();
+    return repetitive_arit_expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public rel_expression createrel_expression()
+  {
+    rel_expressionImpl rel_expression = new rel_expressionImpl();
+    return rel_expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public type createtypeFromString(EDataType eDataType, String initialValue)
+  {
+    type result = type.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -206,7 +266,7 @@ public class PascalFactoryImpl extends EFactoryImpl implements PascalFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertTypeToString(EDataType eDataType, Object instanceValue)
+  public String converttypeToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

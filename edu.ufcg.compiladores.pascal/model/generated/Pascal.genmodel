@@ -6,10 +6,10 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.10">
   <genPackages prefix="Pascal" basePackage="edu.ufcg.compiladores.pascal" disposableProviderFactory="true"
       fileExtensions="pascal" ecorePackage="Pascal.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pascal.ecore#//Type">
-      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/BOOLEAN"/>
-      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/INTEGER"/>
-      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//Type/STRING"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Pascal.ecore#//type">
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//type/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//type/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="Pascal.ecore#//type/STRING"/>
     </genEnums>
     <genClasses ecoreClass="Pascal.ecore#//Pascal">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//Pascal/head"/>
@@ -19,26 +19,45 @@
     <genClasses ecoreClass="Pascal.ecore#//program">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//program/name"/>
     </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//var_block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_block/var_statements"/>
+    </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//var_decl">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_decl/var_list"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_decl/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_decl/var_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_decl/var_type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_decl/value"/>
     </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//var_list">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/identifier"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//var_list/vars"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/var_id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/var_ids"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//var_list/var_type"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//block/statements"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//statement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//statement/atrib_block"/>
     </genClasses>
     <genClasses ecoreClass="Pascal.ecore#//atrib">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/identifier"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//atrib/var_id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//atrib/exp"/>
     </genClasses>
-    <genClasses ecoreClass="Pascal.ecore#//expression">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//expression/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//expression/exp"/>
+    <genClasses ecoreClass="Pascal.ecore#//expression"/>
+    <genClasses ecoreClass="Pascal.ecore#//arit_expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//arit_expression/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//arit_expression/exp"/>
     </genClasses>
-    <genClasses ecoreClass="Pascal.ecore#//secondExp">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//secondExp/op"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//secondExp/value"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//secondExp/exp"/>
+    <genClasses ecoreClass="Pascal.ecore#//repetitive_arit_expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//repetitive_arit_expression/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//repetitive_arit_expression/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Pascal.ecore#//repetitive_arit_expression/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="Pascal.ecore#//rel_expression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//rel_expression/open"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//rel_expression/first"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//rel_expression/op"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//rel_expression/second"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Pascal.ecore#//rel_expression/close"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

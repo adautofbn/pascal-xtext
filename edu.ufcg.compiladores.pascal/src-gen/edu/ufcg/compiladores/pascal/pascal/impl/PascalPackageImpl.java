@@ -6,11 +6,16 @@ package edu.ufcg.compiladores.pascal.pascal.impl;
 import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalFactory;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
-import edu.ufcg.compiladores.pascal.pascal.Type;
+import edu.ufcg.compiladores.pascal.pascal.arit_expression;
 import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.block;
 import edu.ufcg.compiladores.pascal.pascal.expression;
 import edu.ufcg.compiladores.pascal.pascal.program;
-import edu.ufcg.compiladores.pascal.pascal.secondExp;
+import edu.ufcg.compiladores.pascal.pascal.rel_expression;
+import edu.ufcg.compiladores.pascal.pascal.repetitive_arit_expression;
+import edu.ufcg.compiladores.pascal.pascal.statement;
+import edu.ufcg.compiladores.pascal.pascal.type;
+import edu.ufcg.compiladores.pascal.pascal.var_block;
 import edu.ufcg.compiladores.pascal.pascal.var_decl;
 import edu.ufcg.compiladores.pascal.pascal.var_list;
 
@@ -49,6 +54,13 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass var_blockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass var_declEClass = null;
 
   /**
@@ -57,6 +69,20 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * @generated
    */
   private EClass var_listEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass blockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass statementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -77,7 +103,21 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass secondExpEClass = null;
+  private EClass arit_expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass repetitive_arit_expressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass rel_expressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -214,6 +254,26 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getvar_block()
+  {
+    return var_blockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getvar_block_Var_statements()
+  {
+    return (EReference)var_blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getvar_decl()
   {
     return var_declEClass;
@@ -224,9 +284,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getvar_decl_Var_list()
+  public EAttribute getvar_decl_Var_id()
   {
-    return (EReference)var_declEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)var_declEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -234,9 +294,19 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getvar_decl_Type()
+  public EAttribute getvar_decl_Var_type()
   {
     return (EAttribute)var_declEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getvar_decl_Value()
+  {
+    return (EAttribute)var_declEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -254,7 +324,7 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getvar_list_Identifier()
+  public EAttribute getvar_list_Var_id()
   {
     return (EAttribute)var_listEClass.getEStructuralFeatures().get(0);
   }
@@ -264,9 +334,59 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getvar_list_Vars()
+  public EAttribute getvar_list_Var_ids()
   {
-    return (EReference)var_listEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)var_listEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getvar_list_Var_type()
+  {
+    return (EAttribute)var_listEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getblock()
+  {
+    return blockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getblock_Statements()
+  {
+    return (EReference)blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getstatement()
+  {
+    return statementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getstatement_Atrib_block()
+  {
+    return (EReference)statementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -284,7 +404,7 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getatrib_Identifier()
+  public EAttribute getatrib_Var_id()
   {
     return (EAttribute)atribEClass.getEStructuralFeatures().get(0);
   }
@@ -314,9 +434,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getexpression_Value()
+  public EClass getarit_expression()
   {
-    return (EAttribute)expressionEClass.getEStructuralFeatures().get(0);
+    return arit_expressionEClass;
   }
 
   /**
@@ -324,9 +444,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getexpression_Exp()
+  public EAttribute getarit_expression_Value()
   {
-    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)arit_expressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -334,9 +454,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getsecondExp()
+  public EReference getarit_expression_Exp()
   {
-    return secondExpEClass;
+    return (EReference)arit_expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -344,9 +464,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getsecondExp_Op()
+  public EClass getrepetitive_arit_expression()
   {
-    return (EAttribute)secondExpEClass.getEStructuralFeatures().get(0);
+    return repetitive_arit_expressionEClass;
   }
 
   /**
@@ -354,9 +474,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getsecondExp_Value()
+  public EAttribute getrepetitive_arit_expression_Op()
   {
-    return (EAttribute)secondExpEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)repetitive_arit_expressionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -364,9 +484,9 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getsecondExp_Exp()
+  public EAttribute getrepetitive_arit_expression_Value()
   {
-    return (EReference)secondExpEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)repetitive_arit_expressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -374,7 +494,77 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getType()
+  public EReference getrepetitive_arit_expression_Exp()
+  {
+    return (EReference)repetitive_arit_expressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getrel_expression()
+  {
+    return rel_expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrel_expression_Open()
+  {
+    return (EAttribute)rel_expressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrel_expression_First()
+  {
+    return (EAttribute)rel_expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrel_expression_Op()
+  {
+    return (EAttribute)rel_expressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrel_expression_Second()
+  {
+    return (EAttribute)rel_expressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getrel_expression_Close()
+  {
+    return (EAttribute)rel_expressionEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum gettype()
   {
     return typeEEnum;
   }
@@ -417,26 +607,46 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
     programEClass = createEClass(PROGRAM);
     createEAttribute(programEClass, PROGRAM__NAME);
 
+    var_blockEClass = createEClass(VAR_BLOCK);
+    createEReference(var_blockEClass, VAR_BLOCK__VAR_STATEMENTS);
+
     var_declEClass = createEClass(VAR_DECL);
-    createEReference(var_declEClass, VAR_DECL__VAR_LIST);
-    createEAttribute(var_declEClass, VAR_DECL__TYPE);
+    createEAttribute(var_declEClass, VAR_DECL__VAR_ID);
+    createEAttribute(var_declEClass, VAR_DECL__VAR_TYPE);
+    createEAttribute(var_declEClass, VAR_DECL__VALUE);
 
     var_listEClass = createEClass(VAR_LIST);
-    createEAttribute(var_listEClass, VAR_LIST__IDENTIFIER);
-    createEReference(var_listEClass, VAR_LIST__VARS);
+    createEAttribute(var_listEClass, VAR_LIST__VAR_ID);
+    createEAttribute(var_listEClass, VAR_LIST__VAR_IDS);
+    createEAttribute(var_listEClass, VAR_LIST__VAR_TYPE);
+
+    blockEClass = createEClass(BLOCK);
+    createEReference(blockEClass, BLOCK__STATEMENTS);
+
+    statementEClass = createEClass(STATEMENT);
+    createEReference(statementEClass, STATEMENT__ATRIB_BLOCK);
 
     atribEClass = createEClass(ATRIB);
-    createEAttribute(atribEClass, ATRIB__IDENTIFIER);
+    createEAttribute(atribEClass, ATRIB__VAR_ID);
     createEReference(atribEClass, ATRIB__EXP);
 
     expressionEClass = createEClass(EXPRESSION);
-    createEAttribute(expressionEClass, EXPRESSION__VALUE);
-    createEReference(expressionEClass, EXPRESSION__EXP);
 
-    secondExpEClass = createEClass(SECOND_EXP);
-    createEAttribute(secondExpEClass, SECOND_EXP__OP);
-    createEAttribute(secondExpEClass, SECOND_EXP__VALUE);
-    createEReference(secondExpEClass, SECOND_EXP__EXP);
+    arit_expressionEClass = createEClass(ARIT_EXPRESSION);
+    createEAttribute(arit_expressionEClass, ARIT_EXPRESSION__VALUE);
+    createEReference(arit_expressionEClass, ARIT_EXPRESSION__EXP);
+
+    repetitive_arit_expressionEClass = createEClass(REPETITIVE_ARIT_EXPRESSION);
+    createEAttribute(repetitive_arit_expressionEClass, REPETITIVE_ARIT_EXPRESSION__OP);
+    createEAttribute(repetitive_arit_expressionEClass, REPETITIVE_ARIT_EXPRESSION__VALUE);
+    createEReference(repetitive_arit_expressionEClass, REPETITIVE_ARIT_EXPRESSION__EXP);
+
+    rel_expressionEClass = createEClass(REL_EXPRESSION);
+    createEAttribute(rel_expressionEClass, REL_EXPRESSION__OPEN);
+    createEAttribute(rel_expressionEClass, REL_EXPRESSION__FIRST);
+    createEAttribute(rel_expressionEClass, REL_EXPRESSION__OP);
+    createEAttribute(rel_expressionEClass, REL_EXPRESSION__SECOND);
+    createEAttribute(rel_expressionEClass, REL_EXPRESSION__CLOSE);
 
     // Create enums
     typeEEnum = createEEnum(TYPE);
@@ -471,42 +681,64 @@ public class PascalPackageImpl extends EPackageImpl implements PascalPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    arit_expressionEClass.getESuperTypes().add(this.getexpression());
+    rel_expressionEClass.getESuperTypes().add(this.getexpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(pascalEClass, Pascal.class, "Pascal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getPascal_Head(), this.getprogram(), null, "head", null, 0, 1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPascal_Declarations(), this.getvar_decl(), null, "declarations", null, 0, -1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPascal_Scope(), this.getatrib(), null, "scope", null, 0, -1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPascal_Declarations(), this.getvar_block(), null, "declarations", null, 0, -1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPascal_Scope(), this.getblock(), null, "scope", null, 0, -1, Pascal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(programEClass, program.class, "program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getprogram_Name(), ecorePackage.getEString(), "name", null, 0, 1, program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(var_blockEClass, var_block.class, "var_block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getvar_block_Var_statements(), ecorePackage.getEObject(), null, "var_statements", null, 0, -1, var_block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(var_declEClass, var_decl.class, "var_decl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getvar_decl_Var_list(), this.getvar_list(), null, "var_list", null, 0, -1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getvar_decl_Type(), this.getType(), "type", null, 0, -1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_decl_Var_id(), ecorePackage.getEString(), "var_id", null, 0, 1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_decl_Var_type(), this.gettype(), "var_type", null, 0, 1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_decl_Value(), ecorePackage.getEString(), "value", null, 0, 1, var_decl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(var_listEClass, var_list.class, "var_list", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getvar_list_Identifier(), ecorePackage.getEString(), "identifier", null, 0, -1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getvar_list_Vars(), this.getvar_list(), null, "vars", null, 0, -1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_list_Var_id(), ecorePackage.getEString(), "var_id", null, 0, 1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_list_Var_ids(), ecorePackage.getEString(), "var_ids", null, 0, -1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getvar_list_Var_type(), this.gettype(), "var_type", null, 0, 1, var_list.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(blockEClass, block.class, "block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getblock_Statements(), this.getstatement(), null, "statements", null, 0, -1, block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(statementEClass, statement.class, "statement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getstatement_Atrib_block(), this.getatrib(), null, "atrib_block", null, 0, -1, statement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(atribEClass, atrib.class, "atrib", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getatrib_Identifier(), ecorePackage.getEString(), "identifier", null, 0, 1, atrib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getatrib_Var_id(), ecorePackage.getEString(), "var_id", null, 0, 1, atrib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getatrib_Exp(), this.getexpression(), null, "exp", null, 0, 1, atrib.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, expression.class, "expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getexpression_Value(), ecorePackage.getEString(), "value", null, 0, 1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getexpression_Exp(), this.getsecondExp(), null, "exp", null, 0, -1, expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(secondExpEClass, secondExp.class, "secondExp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getsecondExp_Op(), ecorePackage.getEString(), "op", null, 0, 1, secondExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getsecondExp_Value(), ecorePackage.getEString(), "value", null, 0, 1, secondExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getsecondExp_Exp(), this.getsecondExp(), null, "exp", null, 0, -1, secondExp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(arit_expressionEClass, arit_expression.class, "arit_expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getarit_expression_Value(), ecorePackage.getEString(), "value", null, 0, 1, arit_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getarit_expression_Exp(), this.getrepetitive_arit_expression(), null, "exp", null, 0, -1, arit_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(repetitive_arit_expressionEClass, repetitive_arit_expression.class, "repetitive_arit_expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getrepetitive_arit_expression_Op(), ecorePackage.getEString(), "op", null, 0, 1, repetitive_arit_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrepetitive_arit_expression_Value(), ecorePackage.getEString(), "value", null, 0, 1, repetitive_arit_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getrepetitive_arit_expression_Exp(), this.getrepetitive_arit_expression(), null, "exp", null, 0, -1, repetitive_arit_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(rel_expressionEClass, rel_expression.class, "rel_expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getrel_expression_Open(), ecorePackage.getEString(), "open", null, 0, 1, rel_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrel_expression_First(), ecorePackage.getEString(), "first", null, 0, 1, rel_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrel_expression_Op(), ecorePackage.getEString(), "op", null, 0, 1, rel_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrel_expression_Second(), ecorePackage.getEString(), "second", null, 0, 1, rel_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getrel_expression_Close(), ecorePackage.getEString(), "close", null, 0, 1, rel_expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(typeEEnum, Type.class, "Type");
-    addEEnumLiteral(typeEEnum, Type.BOOLEAN);
-    addEEnumLiteral(typeEEnum, Type.INTEGER);
-    addEEnumLiteral(typeEEnum, Type.STRING);
+    initEEnum(typeEEnum, type.class, "type");
+    addEEnumLiteral(typeEEnum, type.BOOLEAN);
+    addEEnumLiteral(typeEEnum, type.INTEGER);
+    addEEnumLiteral(typeEEnum, type.STRING);
 
     // Create resource
     createResource(eNS_URI);

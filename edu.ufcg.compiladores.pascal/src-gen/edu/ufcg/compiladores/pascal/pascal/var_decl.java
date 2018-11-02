@@ -3,8 +3,6 @@
  */
 package edu.ufcg.compiladores.pascal.pascal;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +13,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getVar_list <em>Var list</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getType <em>Type</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getVar_id <em>Var id</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getVar_type <em>Var type</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,37 +26,84 @@ import org.eclipse.emf.ecore.EObject;
 public interface var_decl extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Var list</b></em>' containment reference list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_list}.
+   * Returns the value of the '<em><b>Var id</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Var list</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Var id</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Var list</em>' containment reference list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_decl_Var_list()
-   * @model containment="true"
+   * @return the value of the '<em>Var id</em>' attribute.
+   * @see #setVar_id(String)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_decl_Var_id()
+   * @model
    * @generated
    */
-  EList<var_list> getVar_list();
+  String getVar_id();
 
   /**
-   * Returns the value of the '<em><b>Type</b></em>' attribute list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.Type}.
-   * The literals are from the enumeration {@link edu.ufcg.compiladores.pascal.pascal.Type}.
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getVar_id <em>Var id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var id</em>' attribute.
+   * @see #getVar_id()
+   * @generated
+   */
+  void setVar_id(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var type</b></em>' attribute.
+   * The literals are from the enumeration {@link edu.ufcg.compiladores.pascal.pascal.type}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Type</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Var type</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Type</em>' attribute list.
-   * @see edu.ufcg.compiladores.pascal.pascal.Type
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_decl_Type()
-   * @model unique="false"
+   * @return the value of the '<em>Var type</em>' attribute.
+   * @see edu.ufcg.compiladores.pascal.pascal.type
+   * @see #setVar_type(type)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_decl_Var_type()
+   * @model
    * @generated
    */
-  EList<Type> getType();
+  type getVar_type();
+
+  /**
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getVar_type <em>Var type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var type</em>' attribute.
+   * @see edu.ufcg.compiladores.pascal.pascal.type
+   * @see #getVar_type()
+   * @generated
+   */
+  void setVar_type(type value);
+
+  /**
+   * Returns the value of the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Value</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Value</em>' attribute.
+   * @see #setValue(String)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_decl_Value()
+   * @model
+   * @generated
+   */
+  String getValue();
+
+  /**
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.var_decl#getValue <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Value</em>' attribute.
+   * @see #getValue()
+   * @generated
+   */
+  void setValue(String value);
 
 } // var_decl

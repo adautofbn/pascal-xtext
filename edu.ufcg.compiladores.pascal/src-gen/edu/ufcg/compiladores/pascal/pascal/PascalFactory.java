@@ -42,6 +42,15 @@ public interface PascalFactory extends EFactory
   program createprogram();
 
   /**
+   * Returns a new object of class '<em>var block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>var block</em>'.
+   * @generated
+   */
+  var_block createvar_block();
+
+  /**
    * Returns a new object of class '<em>var decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +67,24 @@ public interface PascalFactory extends EFactory
    * @generated
    */
   var_list createvar_list();
+
+  /**
+   * Returns a new object of class '<em>block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>block</em>'.
+   * @generated
+   */
+  block createblock();
+
+  /**
+   * Returns a new object of class '<em>statement</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>statement</em>'.
+   * @generated
+   */
+  statement createstatement();
 
   /**
    * Returns a new object of class '<em>atrib</em>'.
@@ -78,13 +105,31 @@ public interface PascalFactory extends EFactory
   expression createexpression();
 
   /**
-   * Returns a new object of class '<em>second Exp</em>'.
+   * Returns a new object of class '<em>arit expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>second Exp</em>'.
+   * @return a new object of class '<em>arit expression</em>'.
    * @generated
    */
-  secondExp createsecondExp();
+  arit_expression createarit_expression();
+
+  /**
+   * Returns a new object of class '<em>repetitive arit expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>repetitive arit expression</em>'.
+   * @generated
+   */
+  repetitive_arit_expression createrepetitive_arit_expression();
+
+  /**
+   * Returns a new object of class '<em>rel expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>rel expression</em>'.
+   * @generated
+   */
+  rel_expression createrel_expression();
 
   /**
    * Returns the package supported by this factory.

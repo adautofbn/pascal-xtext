@@ -5,9 +5,9 @@ package edu.ufcg.compiladores.pascal.pascal.impl;
 
 import edu.ufcg.compiladores.pascal.pascal.Pascal;
 import edu.ufcg.compiladores.pascal.pascal.PascalPackage;
-import edu.ufcg.compiladores.pascal.pascal.atrib;
+import edu.ufcg.compiladores.pascal.pascal.block;
 import edu.ufcg.compiladores.pascal.pascal.program;
-import edu.ufcg.compiladores.pascal.pascal.var_decl;
+import edu.ufcg.compiladores.pascal.pascal.var_block;
 
 import java.util.Collection;
 
@@ -60,7 +60,7 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
    * @generated
    * @ordered
    */
-  protected EList<var_decl> declarations;
+  protected EList<var_block> declarations;
 
   /**
    * The cached value of the '{@link #getScope() <em>Scope</em>}' containment reference list.
@@ -70,7 +70,7 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
    * @generated
    * @ordered
    */
-  protected EList<atrib> scope;
+  protected EList<block> scope;
 
   /**
    * <!-- begin-user-doc -->
@@ -146,11 +146,11 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<var_decl> getDeclarations()
+  public EList<var_block> getDeclarations()
   {
     if (declarations == null)
     {
-      declarations = new EObjectContainmentEList<var_decl>(var_decl.class, this, PascalPackage.PASCAL__DECLARATIONS);
+      declarations = new EObjectContainmentEList<var_block>(var_block.class, this, PascalPackage.PASCAL__DECLARATIONS);
     }
     return declarations;
   }
@@ -160,11 +160,11 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<atrib> getScope()
+  public EList<block> getScope()
   {
     if (scope == null)
     {
-      scope = new EObjectContainmentEList<atrib>(atrib.class, this, PascalPackage.PASCAL__SCOPE);
+      scope = new EObjectContainmentEList<block>(block.class, this, PascalPackage.PASCAL__SCOPE);
     }
     return scope;
   }
@@ -225,11 +225,11 @@ public class PascalImpl extends MinimalEObjectImpl.Container implements Pascal
         return;
       case PascalPackage.PASCAL__DECLARATIONS:
         getDeclarations().clear();
-        getDeclarations().addAll((Collection<? extends var_decl>)newValue);
+        getDeclarations().addAll((Collection<? extends var_block>)newValue);
         return;
       case PascalPackage.PASCAL__SCOPE:
         getScope().clear();
-        getScope().addAll((Collection<? extends atrib>)newValue);
+        getScope().addAll((Collection<? extends block>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

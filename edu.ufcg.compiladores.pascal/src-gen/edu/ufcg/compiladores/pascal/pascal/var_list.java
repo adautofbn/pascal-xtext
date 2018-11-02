@@ -15,8 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getIdentifier <em>Identifier</em>}</li>
- *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVars <em>Vars</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_id <em>Var id</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_ids <em>Var ids</em>}</li>
+ *   <li>{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_type <em>Var type</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,35 +28,74 @@ import org.eclipse.emf.ecore.EObject;
 public interface var_list extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Identifier</b></em>' attribute list.
+   * Returns the value of the '<em><b>Var id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Var id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Var id</em>' attribute.
+   * @see #setVar_id(String)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Var_id()
+   * @model
+   * @generated
+   */
+  String getVar_id();
+
+  /**
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_id <em>Var id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var id</em>' attribute.
+   * @see #getVar_id()
+   * @generated
+   */
+  void setVar_id(String value);
+
+  /**
+   * Returns the value of the '<em><b>Var ids</b></em>' attribute list.
    * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Identifier</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Var ids</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Identifier</em>' attribute list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Identifier()
+   * @return the value of the '<em>Var ids</em>' attribute list.
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Var_ids()
    * @model unique="false"
    * @generated
    */
-  EList<String> getIdentifier();
+  EList<String> getVar_ids();
 
   /**
-   * Returns the value of the '<em><b>Vars</b></em>' containment reference list.
-   * The list contents are of type {@link edu.ufcg.compiladores.pascal.pascal.var_list}.
+   * Returns the value of the '<em><b>Var type</b></em>' attribute.
+   * The literals are from the enumeration {@link edu.ufcg.compiladores.pascal.pascal.type}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Vars</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Var type</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Vars</em>' containment reference list.
-   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Vars()
-   * @model containment="true"
+   * @return the value of the '<em>Var type</em>' attribute.
+   * @see edu.ufcg.compiladores.pascal.pascal.type
+   * @see #setVar_type(type)
+   * @see edu.ufcg.compiladores.pascal.pascal.PascalPackage#getvar_list_Var_type()
+   * @model
    * @generated
    */
-  EList<var_list> getVars();
+  type getVar_type();
+
+  /**
+   * Sets the value of the '{@link edu.ufcg.compiladores.pascal.pascal.var_list#getVar_type <em>Var type</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Var type</em>' attribute.
+   * @see edu.ufcg.compiladores.pascal.pascal.type
+   * @see #getVar_type()
+   * @generated
+   */
+  void setVar_type(type value);
 
 } // var_list
